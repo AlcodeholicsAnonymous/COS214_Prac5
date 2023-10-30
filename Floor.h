@@ -15,7 +15,6 @@ class Floor {
     bool split(Table* table);
     void detach(Employee* employee, Table* table);
     void attach(Employee* employee, Table* table);
-    // void notify();
     Floor();
     ~Floor();
 };
