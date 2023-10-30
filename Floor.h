@@ -6,7 +6,7 @@
 class Floor {
    private:
     Table* head;
-    Employee observer;
+    Employee MaitreD;
 
    public:
     void add(Table* table);
