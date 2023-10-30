@@ -5,6 +5,7 @@ class Employee {
 	int _employeeNr;
 	public:
 	Employee(int employeeNr) : _employeeNr(employeeNr) { };
+	Employee();
 	~Employee();
 	const int &employeeNr = _employeeNr;
 };
