@@ -1,5 +1,5 @@
 #include "Table.h"
-#include "Employee.h"
+#include "Waiter.h"
 #include "Floor.h"
 
 void Table::setAvailable(bool available) {
