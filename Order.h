@@ -13,6 +13,7 @@ public:
 
 Order::Order(/* args */)
 {
+	// cout << "Order created" << endl;
 }
 
 Order::~Order()

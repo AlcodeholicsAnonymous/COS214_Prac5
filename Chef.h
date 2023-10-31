@@ -7,26 +7,16 @@
 
 using namespace std;
 
-class Chef {
+class Chef: public Employee {
 protected:
-    Order curOrder;
+    Order *curOrder;
 public:
     Chef();
-    Order getOrder();
-    void setOrder(Order order);
+    Order* getOrder();
+    void setOrder(Order* order);
 };
 
-Chef::Chef() {
-    curOrder = Order();
-}
 
-Order Chef::getOrder() {
-    return this->curOrder;
-}
-
-void Chef::setOrder(Order o) {
-    this->curOrder = o;
-}
 
 
 
