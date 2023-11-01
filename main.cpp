@@ -8,19 +8,22 @@
 
 using namespace std;
 
-int main() {
+CategoryChef* populateChefs();
 
-    // 2: meat 
-// 3: fish
-// 4: pizza
-// 5: fry
-// 6: burger
-// 7: pastry
-// 8: pasta
-// 9: salads
-// 10: drinks
+int main() {
     cout << "\n";
 
+
+    HeadChef *headChef = new HeadChef(populateChefs());
+
+    Customer *customer = new Customer(new Booking(true, 1, 2));
+    customer->createOrder();
+
+    cout << "\n";
+    return 0;
+}
+
+CategoryChef* populateChefs() {
     CategoryChef *meatChef = new CategoryChef(2);
     CategoryChef *fishChef = new CategoryChef(3);
     meatChef->setNextChef(fishChef);
@@ -39,11 +42,5 @@ int main() {
     CategoryChef *drinksChef = new CategoryChef(10);
     saladsChef->setNextChef(drinksChef);
 
-    HeadChef *headChef = new HeadChef(meatChef);
-
-    Customer *customer = new Customer(new Booking(true, 1, 2));
-    Customer *customer2 = new Customer(new Booking(5));
-
-    cout << "\n";
-    return 0;
+    return meatChef;
 }

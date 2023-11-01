@@ -16,7 +16,7 @@ Customer::Customer(Booking *booking){
 }
 
 void Customer::createOrder(){
-
+	cout << "Customer " << cusId << " is creating an order." << endl;
 }
 
 void Customer::eat(){
