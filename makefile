@@ -20,7 +20,7 @@ OBJS = $(SRCS:.cpp=.o)
 EXEC = my_program
 
 # Define the default target
-all: $(EXEC) run clean
+all: $(EXEC) clean run
 
 # Define the rule to create the executable
 $(EXEC): $(OBJS)

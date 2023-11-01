@@ -1,14 +1,5 @@
 #pragma once
 
-<<<<<<< Updated upstream
-class Employee {
-	private:
-	int _employeeNr;
-	public:
-	Employee(int employeeNr) : _employeeNr(employeeNr) { };
-	~Employee();
-	const int &employeeNr = _employeeNr;
-=======
 #include <iostream>
 #include <string>
 #include "Person.h"
@@ -25,6 +16,5 @@ public:
     Employee *getSuccessor();
     void setSuccessor(Employee* successor);
     // virtual void handleRequest(Order*);
->>>>>>> Stashed changes
 };
 
