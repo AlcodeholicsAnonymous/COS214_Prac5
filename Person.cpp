@@ -1,5 +1,6 @@
 #include "Person.h"
 
+int Person::maxId = 0;
 Person::Person(){
     id = ++maxId;
 }

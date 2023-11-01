@@ -2,11 +2,11 @@
 #include "Order.h"
 class Waiter;
 
-static int maxId = {0};
 class Person{
 private:
     Waiter *mediator;
 protected:
+    static int maxId;
     int id;
     Person();
     ~Person();
@@ -15,5 +15,3 @@ protected:
 public:
     
 };
-
-extern int maxId;
