@@ -10,17 +10,17 @@ private:
     Meal* next;
 public:
 	Meal();
-    void setNext();
-    Meal* getNext();
-    Meal getMeal();
-    void add(Meal m);
-    void remove(Meal m);
-    Meal getChild(int child);
-    string getName();
-    int getCategory();
-    int getMin();
-    int getMax();
-    int getCost();
+    void setNext(Meal* meal);
+    virtual Meal* getNext();
+    virtual Meal* getMeal();
+    virtual void add(Meal m);
+    virtual void remove(Meal m);
+    virtual Meal* getChild(int child);
+    virtual string getName();
+    virtual int getCategory();
+    virtual int getMin();
+    virtual int getMax();
+    virtual int getCost();
     
 	~Meal();
 };
