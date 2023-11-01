@@ -16,3 +16,7 @@ Employee* Employee::getSuccessor() {
 void Employee::setSuccessor(Employee *successor) {
     this->successor = successor;
 }
+
+void Employee::handleRequest(Order *o)
+{
+}

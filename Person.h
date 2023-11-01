@@ -1,5 +1,6 @@
 #pragma once
 
+class Order;
 class Waiter;
 
 class Person{

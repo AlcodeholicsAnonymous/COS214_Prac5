@@ -5,6 +5,8 @@
 #include "Employee.h"
 #include "Chef.h"
 #include "HeadChef.h"
+#include "CategoryChef.h"
+#include "Meal.h"
 
 using namespace std;
 
@@ -17,6 +19,7 @@ int main() {
     HeadChef *headChef = new HeadChef(populateChefs());
 
     // Pizza order
+    Meal *pizza = new Meal();
     // Order *order = new Order();
 
     cout << "\n";
@@ -41,6 +44,5 @@ CategoryChef* populateChefs() {
     pastaChef->setNextChef(saladsChef);
     CategoryChef *drinksChef = new CategoryChef(10);
     saladsChef->setNextChef(drinksChef);
-
     return meatChef;
 }

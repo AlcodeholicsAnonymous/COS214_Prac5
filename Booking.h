@@ -1,17 +1,15 @@
 #pragma once
+#include "Table.h"
 
-#include <iostream>
-
-class Booking
-{
-private:
-	bool hasBooking;
-	int tableNumber;
-	int size;
+class Booking{
+protected:
+	Table *table;
+	bool isBooked;
 public:
-	Booking(bool _hasBooking, int _tableNumber, int _size);
-	Booking(int _size);
-	bool getBooked() { return hasBooking; }
-	int getTable() { return tableNumber; }
-	int getSize() { return size; }
+	Booking(/* args */);
+	Table *getTable();
+    bool getBooked();
+	~Booking();
 };
+
+

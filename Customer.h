@@ -1,6 +1,9 @@
 #pragma once
+
 #include "Person.h"
 #include "Booking.h"
+#include "Table.h"
+// #include "Tab.h"
 
 #include <thread>  
 #include <chrono>
@@ -13,14 +16,15 @@ using namespace std;
 class Customer:public Person{
 private:
 	int cusId;
+	int size;
+	Table *table;
 	Booking *booking;
 	// Tab tab;
 
 public:
-	Customer(Booking *booking);
+	Customer(Booking *booking, int size);
 	void createOrder();
-	void eat();
-	void pay(bool method);
+	void eat(Order* o);
 	int getId();
 	~Customer();
 };
