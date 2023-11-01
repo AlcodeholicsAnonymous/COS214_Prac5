@@ -261,6 +261,26 @@ struct Food{
             ,{"Asian Noodle Salad", 9, saladMin, saladMax, saladCost, asianNoodleSaladIng, 5}
             ,{"Mediterranean Salad", 9, saladMin, saladMax, saladCost, mediterraneanSaladIng, 5}
             ,{"Antipasto Salad", 9, saladMin, saladMax, saladCost, antipastoSaladIng, 6}
+            ,{"Coca-Cola", 10, drinksMin, drinksMax, drinkCost, cocaColaIng, 1}
+            ,{"Pepsi", 10, drinksMin, drinksMax, drinkCost, pepsiIng, 1}
+            ,{"Sprite", 10, drinksMin, drinksMax, drinkCost, spriteIng, 1}
+            ,{"Mountain Dew", 10, drinksMin, drinksMax, drinkCost, mountainDewIng, 1}
+            ,{"Root Beer", 10, drinksMin, drinksMax, drinkCost, rootBeerIng, 1}
+            ,{"Iced Tea", 10, drinksMin, drinksMax, drinkCost, icedTeaIng, 1}
+            ,{"Lemonade", 10, drinksMin, drinksMax, drinkCost, lemonadeIng, 3}
+            ,{"Orange Juice", 10, drinksMin, drinksMax, drinkCost, orangeJuiceIng, 1}
+            ,{"Cranberry Juice", 10, drinksMin, drinksMax, drinkCost, cranberryJuiceIng, 1}
+            ,{"Grape Juice", 10, drinksMin, drinksMax, drinkCost, grapeJuiceIng, 1}
+            ,{"Apple Juice", 10, drinksMin, drinksMax, drinkCost, appleJuiceIng, 1}
+            ,{"Lime Soda", 10, drinksMin, drinksMax, drinkCost, limeSodaIng, 1}
+            ,{"Cherry Soda", 10, drinksMin, drinksMax, drinkCost, cherrySodaIng, 1}
+            ,{"Fruit Punch", 10, drinksMin, drinksMax, drinkCost, fruitPunchIng, 1}
+            ,{"Lemon-Lime Soda", 10, drinksMin, drinksMax, drinkCost, lemonLimeSodaIng, 1}
+            ,{"Mango Smoothie", 10, drinksMin, drinksMax, drinkCost, mangoSmoothieIng, 2}
+            ,{"Strawberry Banana Smoothie", 10, drinksMin, drinksMax, drinkCost, strawberryBananaSmoothieIng, 2}
+            ,{"Pina Colada", 10, drinksMin, drinksMax, drinkCost, pinaColadaIng, 3}
+            ,{"Mojito", 10, drinksMin, drinksMax, drinkCost, mojitoIng, 3}
+            ,{"Espresso", 10, drinksMin, drinksMax, drinkCost, espressoIng, 1}
             
         };
 
@@ -325,15 +345,35 @@ string penneVodkaIng[4] = {"Ravioli", "Vodka", "Cream", "Parmesan"};
 string linguineAglioEOlioIng[2] = {"Ravioli", "Garlic"};
 string fettuccineAlfredoIng[4] = {"Spaghetti", "Cream", "Parmesan", "Butter"};
 string caesarSaladIng[4] = {"Lettuce", "Crumbs", "Parmesan", "OliveOil"};
-string gardenSaladIng[3] = {"Mixed Greens", "Tomato", "Cucumber"};
-string greekSaladIng[5] = {"Romaine Lettuce", "Tomato", "Cucumber", "Olives", "Feta"};
-string capreseSaladIng[3] = {"Tomato", "Mozzarella Cheese", "Basil"};
-string cobbSaladIng[6] = {"Mixed Greens", "Chicken", "Bacon", "Egg", "Avocado", "Blue Cheese"};
-string spinachStrawberrySaladIng[4] = {"Baby Spinach", "Strawberries", "Almonds", "Poppy Seed Dressing"};
+string gardenSaladIng[3] = {"Beans", "Tomato", "Cucumber"};
+string greekSaladIng[5] = {"Lettuce", "Tomato", "Cucumber", "Olives", "Feta"};
+string capreseSaladIng[3] = {"Tomato", "Mozzarella", "Herbs"};
+string cobbSaladIng[6] = {"Beans", "Chicken", "Bacon", "Egg", "Avocado", "Blue Cheese"};
+string spinachStrawberrySaladIng[4] = {"Lettuce", "Strawberry", "Herbs", "Peas"};
 string waldorfSaladIng[5] = {"Beans", "Apples", "Garlic", "Herbs", "Sauce"};
-string asianNoodleSaladIng[5] = {"Noodles", "Cabbage", "Carrots", "Cilantro", "Soy Ginger Dressing"};
-string mediterraneanSaladIng[5] = {"Mixed Greens", "Tomato", "Cucumber", "Red Onion", "Feta Cheese"};
-string antipastoSaladIng[6] = {"Mixed Greens", "Salami", "Olives", "Artichoke Hearts", "Mozzarella Cheese", "Italian Dressing"};
+string asianNoodleSaladIng[5] = {"Noodles", "Cabbage", "Carrots", "Noodles", "Sauce"};
+string mediterraneanSaladIng[5] = {"Beans", "Tomato", "Cucumber", "Onion", "Feta"};
+string antipastoSaladIng[6] = {"Beans", "Salami", "Olives", "Anchovies", "Mozzarella", "Sauce"};
+string cocaColaIng[1] = {"Coke"};
+string pepsiIng[1] = {"Coke"};
+string spriteIng[1] = {"Sprite"};
+string mountainDewIng[1] = {"Fanta"};
+string rootBeerIng[1] = {"Beer"};
+string icedTeaIng[1] = {"RooiBos"};
+string lemonadeIng[3] = {"Lemon","Water","Sugar"};
+string orangeJuiceIng[1] = {"Fanta"};
+string cranberryJuiceIng[1] = {"Sauce"};
+string grapeJuiceIng[1] = {"Wine"};
+string appleJuiceIng[1] = {"Brandy"};
+string limeSodaIng[1] = {"Sprite"};
+string cherrySodaIng[1] = {"Sprite"};
+string fruitPunchIng[1] = {"Wine"};
+string lemonLimeSodaIng[1] = {"Sprite"};
+string mangoSmoothieIng[2] = {"Sauce", "Cream"};
+string strawberryBananaSmoothieIng[2] = {"Strawberries", "Banana"};
+string pinaColadaIng[3] = {"Pineapple", "Milk", "Whiskey"};
+string mojitoIng[3] = {"Lime", "Mint", "Whiskey"};
+string espressoIng[1] = {"CoffeeBeans"};
 
 
 
