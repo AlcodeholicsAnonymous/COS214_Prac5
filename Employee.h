@@ -15,5 +15,6 @@ public:
     ~Employee();
     Employee *getSuccessor();
     void setSuccessor(Employee* successor);
+    virtual void handleRequest(Order*) = 0;
 };
 
