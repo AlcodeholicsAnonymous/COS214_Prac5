@@ -13,10 +13,10 @@ private:
 public:
 
     HeadChef(CategoryChef* chefs);
-    // void startOrder(Order* o);
-    // void delegateOrder(Order* o);
-    // void plateOrder(Order* _finishedOrder);
-    // void handleRequest(Order* o);
+    void startOrder(Order* o);
+    void delegateOrder(Order* o);
+    void plateOrder(Order* _finishedOrder);
+    void handleRequest(Order* o);
 };
 
 

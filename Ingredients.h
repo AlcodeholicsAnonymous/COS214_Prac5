@@ -23,10 +23,10 @@ public:
     void remove(Meal m){}
     Meal* getChild(int child){ return nullptr; }
     string getName(){ return ""; }
-    int getCategory(){}
-    int getMin(){}
-    int getMax(){}
-    int getCost(){}
+    int getCategory(){ return 0; }
+    int getMin(){ return 0; }
+    int getMax(){ return 0; }
+    int getCost(){ return 0; }
 
     ~Ingredients();
 };

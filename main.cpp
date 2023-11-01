@@ -16,8 +16,8 @@ int main() {
 
     HeadChef *headChef = new HeadChef(populateChefs());
 
-    Customer *customer = new Customer(new Booking(true, 1, 2));
-    customer->createOrder();
+    // Pizza order
+    // Order *order = new Order();
 
     cout << "\n";
     return 0;

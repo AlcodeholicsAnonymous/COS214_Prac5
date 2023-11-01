@@ -3,10 +3,10 @@
 Chef::Chef() {
 }
 
-// Order* Chef::getOrder() {
-//     return this->curOrder;
-// }
+Order* Chef::getOrder() {
+    return this->curOrder;
+}
 
-// void Chef::setOrder(Order* o) {
-//     this->curOrder = o;
-// }
+void Chef::setOrder(Order* o) {
+    this->curOrder = o;
+}
