@@ -5,7 +5,7 @@ Person::Person(){
 }
 
 Person::~Person(){
-    delete mediator;
+    // delete mediator;
 }
 
 Waiter* Person::getMediator() {

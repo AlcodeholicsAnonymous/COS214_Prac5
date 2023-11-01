@@ -12,16 +12,16 @@ void HeadChef::startOrder(Order* o) {
     this->setOrder(o);
     cout << "Order Status changed from \"Not Started\" to \"In Progress\"" << endl;
     // Change the state of the order when Order is implememnted
-    delegateOrder();
+    delegateOrder(o);
 }
 
 /// @brief  Handle the delegation of the order to the appropriate CategoryChef based on what the order is
-void HeadChef::delegateOrder() {
+void HeadChef::delegateOrder(Order* o) {
     cout << "Delegating order to CategoryChefs" << endl;
-    Order* _finishedOrder = new Order();
+    Order* _finishedOrder = new Order(o->getCustomer());
     // while(this->curOrder.getNextMeal() != nullptr) {
     //     int category = curOrder.getMeal()->getCategory();
-    //     chefs[category].prepair(curOrder.getMeal());
+    //     call handle request on the category chef
     //     _finishedOrder.addMeal(chefs[category].getMeal());
     // }
     cout << "All category chefs finished their meals" << endl;
@@ -35,4 +35,8 @@ void HeadChef::plateOrder(Order* _finishedOrder) {
     this->setOrder(_finishedOrder);
     cout << "Order Status changed from \"In Progress\" to \"Completed\"" << endl;
     // Call the waiter to come and fetch the order
+}
+void HeadChef::handleRequest(Order* o) {
+    cout << "HeadChef handling request" << endl;
+    this->startOrder(o);
 }

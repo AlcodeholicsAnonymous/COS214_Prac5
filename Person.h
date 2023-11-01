@@ -1,8 +1,8 @@
 #pragma once
+#include "Order.h"
+class Waiter;
 
-#include "Waiter.h"
-
-static int maxId = 0;
+static int maxId = {0};
 class Person{
 private:
     Waiter *mediator;
@@ -16,3 +16,4 @@ public:
     
 };
 
+extern int maxId;

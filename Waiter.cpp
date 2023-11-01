@@ -26,3 +26,8 @@ void Waiter::notify(Table* t) {
 int Waiter::getID() {
 	return this->id;
 }
+void Waiter::handleRequest(Order* o) {
+    this->takeOrder(o);
+    cout << "Waiter " << this->id << " took order " << endl;
+    successor->handleRequest(o);
+}

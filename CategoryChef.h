@@ -13,6 +13,7 @@ private:
 public:
     CategoryChef();
     CategoryChef(int cat);
-    void prepair(Meal meal);
+    void prepare(Meal meal);
     Meal getMeal();
+    void handleRequest(Meal meal);
 };

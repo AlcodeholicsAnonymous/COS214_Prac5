@@ -5,7 +5,7 @@ Employee::Employee() : Person() {
 }
 
 Employee::~Employee() {
-    delete successor;
+    // delete successor;
 }
 
 Employee* Employee::getSuccessor() {

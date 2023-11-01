@@ -11,18 +11,17 @@ int main() {
     cout << "\n";
 
     // // Create a dynamic array of CategoryChefs
-    // CategoryChef* chefs = new CategoryChef(1);
-    
+    CategoryChef* chefs = new CategoryChef(1);
     
     // // Create a HeadChef
-    // HeadChef *headChef = new HeadChef(chefs);
-
-    // Order *order = new Order();
+    HeadChef *headChef = new HeadChef(chefs);
+    Customer *customer = new Customer();
+    Order *order = new Order(customer);
     // headChef->startOrder(order);
 
     Waiter *waiter = new Waiter();
-    cout << "ID: " << waiter->getID() << endl;    
-    
+    waiter->setSuccessor(headChef);
+    waiter->handleRequest(order);
 
     cout << "\n";
     return 0;
