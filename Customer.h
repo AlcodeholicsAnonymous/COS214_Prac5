@@ -1,18 +1,26 @@
 #pragma once
+#include "Person.h"
+#include "Booking.h"
 
-class Customer
-{
+#include <thread>  
+#include <chrono>
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
+
+using namespace std;
+
+class Customer:public Person{
 private:
-	/* data */
+	int cusId;
+	Booking *booking;
+	// Tab tab;
+
 public:
-	Customer(/* args */);
+	Customer(Booking *booking);
+	void createOrder();
+	void eat();
+	void pay(bool method);
+	int getId();
 	~Customer();
 };
-
-Customer::Customer(/* args */)
-{
-}
-
-Customer::~Customer()
-{
-}
