@@ -74,7 +74,7 @@ struct Food{
 
 };
 
- Food foodBank[250]={
+ Food foodBank[206]={
             {"BeefPatty",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}
             ,{"Cheddar",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}
             ,{"Buns",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}

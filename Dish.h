@@ -22,6 +22,7 @@ public:
     void removeIngredient(Meal* m);
     Meal* getChild(int child);
     string getName();
+    string getDishList(int i);
     int getCategory();
     int getMin();
     int getMax();
