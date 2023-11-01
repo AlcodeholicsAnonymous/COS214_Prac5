@@ -1,12 +1,14 @@
 #pragma once
 using namespace std;
+#include "Tab.h"
 
 class Database {
 	private: 
-        Tab* tabs;
-        //Database* db;
+        Tab* db;
+        void addTab(Tab* t);
 	public: 
         Database();
-        void addTab(Tab* t);
+        void addToTab(Order* o);
+        bool payTab(int custId);
         ~Database();
 };

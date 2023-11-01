@@ -1,41 +1,59 @@
 using namespace std;
-
 #include "Tab.h"
 
 Tab::Tab(int cId) {
 	customerId = cId;
 	total = 0;
+	next = nullptr;
 }
 
-void Tab::addToTab(Order* o) {
+void Tab::addToTab(OrderBackup* ob) {
+	//if Tab empty -> add new order to head of orders
 	if (orders == nullptr) {
-        orders = o;
+        orders = ob;
         return;
     }
-	Order* orderPtr = orders;
-	while (orderPtr->getNextOrder() != nullptr) {
-        orderPtr = orderPtr->getNextOrder();
+
+	//Tab not empty -> go to last order
+	OrderBackup* orderPtr = orders;
+	while (orderPtr->getNext() != nullptr) {
+        orderPtr = orderPtr->getNext();
     }
-    orderPtr->setNextOrder(o);
+    orderPtr->setNext(ob);		//Add new order to tail of orders in tab
 }
 
-void Tab::calcTotal() {
+int Tab::getTotal() {
 	//iterate through orders to iterate through meals & calc tot
 }
 
+Tab* Tab::getNext() {
+	return next;
+}
+
+void Tab::setNext(Tab* t) {
+	next = t;
+}
+
+int Tab::getCustId() {
+	return customerId;
+}
+
 Tab::~Tab() {
-	// if (meals == nullptr) {
-    //     return false;
-    // }
-    // Meal* mealPtr = meals;
-    // while (mealPtr->getNext() != nullptr && mealPtr->getNext()->getName() != mealName) {
-    //     mealPtr = mealPtr->getNext();
-    // }
-    // if (mealPtr->getNext() != nullptr && mealPtr->getNext()->getName() == mealName) {
-    //     mealPtr->setNext(mealPtr->getNext()->getNext());
-    //     mealPtr->getNext()->setNext(nullptr);
-    //     return true;
-    // }
-    // return false;
+	//if Tab empty -> just delete tab
+	if (orders == nullptr) {
+        delete orders;
+        return;
+    }
+
+	//Tab not empty -> delete each order
+	OrderBackup* temp = nullptr;
+	while (orders->getNext() != nullptr) {
+        temp = orders;
+		orders = orders->getNext();
+		delete temp;
+    }
+
+	//delete orders pointer
+    delete orders;
 }
 

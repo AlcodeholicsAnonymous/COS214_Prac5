@@ -5,6 +5,11 @@ Order::Order(Customer* c) {
     meals = nullptr;
     customer = c;
     state = "Ordered";
+    next = nullptr;
+}
+
+Order::~Order() {
+    
 }
 
 void Order::addMeal(Meal* meal) {
@@ -35,13 +40,13 @@ bool Order::removeMeal(string mealName) {
     return false;
 }
 
-void Order::updateTab() {
+// void Order::updateTab() {
 
-}
+// }
 
-void Order::payTab() {
+// void Order::payTab() {
 
-}
+// }
 
 string Order::getState() {
     return state;
@@ -71,6 +76,16 @@ void Order::setCustomer(Customer* c) {
     customer = c;
 }
 
-Order::~Order() {
-    
+OrderBackup* Order::makeBackup() {
+    int price = 0;
+    //iterate through meals and calc price
+    return new OrderBackup(meals, state, customer, next, price);
 }
+
+void Order::restore(OrderBackup* ob) {
+    meals = ob->getMeals();
+    state = ob->getState();
+    customer = ob->getCustomer();
+    next = nullptr;
+}
+

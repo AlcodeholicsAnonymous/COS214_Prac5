@@ -1,17 +1,19 @@
 #pragma once
 using namespace std;
-#include "Order.h"
-// #include "Database.h"
+#include "OrderBackup.h"
 
 class Tab {
 	private: 
         int customerId;
         int total;
-        Order* orders;
-        //Database* db;
+        OrderBackup* orders;
+        Tab* next;
 	public: 
         Tab(int cId);
-        void addToTab(Order* o);
-        void calcTotal();
+        void addToTab(OrderBackup* ob);
+        int getTotal();
+        Tab* getNext();
+        void setNext(Tab* t);
+        int getCustId();
         ~Tab();
 };
