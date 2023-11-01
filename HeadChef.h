@@ -14,8 +14,9 @@ public:
 
     HeadChef(CategoryChef* chefs);
     void startOrder(Order* o);
-    void delegateOrder();
+    void delegateOrder(Order* o);
     void plateOrder(Order* _finishedOrder);
+    void handleRequest(Order* o);
 };
 
 

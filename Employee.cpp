@@ -1,11 +1,12 @@
 #include "Employee.h"
 
 Employee::Employee() : Person() {
+    successor = nullptr;
     employeeNr = id;
 }
 
 Employee::~Employee() {
-    delete successor;
+    // delete successor;
 }
 
 Employee* Employee::getSuccessor() {
@@ -14,4 +15,8 @@ Employee* Employee::getSuccessor() {
 
 void Employee::setSuccessor(Employee *successor) {
     this->successor = successor;
+}
+
+void Employee::handleRequest(Order *o)
+{
 }

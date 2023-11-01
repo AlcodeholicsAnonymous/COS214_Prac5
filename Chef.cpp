@@ -1,7 +1,6 @@
 #include "Chef.h"
 
 Chef::Chef() {
-    
 }
 
 Order* Chef::getOrder() {
