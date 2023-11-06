@@ -10,6 +10,7 @@ void Floor::add(Table* table) {
         }
         curr->setNext(table);
         table->setPrevious(curr);
+
     }
 }
 
@@ -56,6 +57,7 @@ bool Floor::split(Table* table) {
     if (table->getAvailable() && table->combined) {
         Table* newTable1 = new Table(table->getCombinedTable()->getSize(), true, table->getNumber());
         Table* newTable2 = new Table(table->getSize() - table->getCombinedTable()->getSize(), true, table->getCombinedTable()->getNumber());
+
         this->add(newTable1);
         this->add(newTable2);
         if (this->remove(table) == nullptr) {
@@ -73,7 +75,6 @@ void Floor::attach(Employee* employee, Table* table) {
 void Floor::detach(Employee* employee, Table* table) {
     table->setWaiter(nullptr);
 }
-
 Floor::Floor() {
 
 }

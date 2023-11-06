@@ -1,24 +1,25 @@
 #pragma once
-#include "Employee.h"
-#include "Table.h"
+#include "HeadChef.h"
 #include "Order.h"
+#include "Table.h"
+#include "Database.h"
+
 
 class Waiter : public Employee {
 private:
-	Table* tables;
-	Order* currOrder;
-	Order dish;
+    HeadChef* headChef;
+    Database* database;
 public:
-	Waiter(int employeeNr);
-	~Waiter();
-	void takeOrder(Order* o);
-	void serveOrder(Order* o);
+    Waiter(Database* db);
+    ~Waiter();
+    void takeOrder(Order* o);
+    void deliverOrder(Order* o);
+    void notify(Order* o);
+    void notify(Table* t);
+    void notify(bool method, Order* o);
+    void addToTab(Order* o);
+    void payTab(Order* o);
+
+	int getID();
 };
 
-Waiter::Waiter(int employeeNr) : Employee(employeeNr)
-{
-}
-
-Waiter::~Waiter()
-{
-}

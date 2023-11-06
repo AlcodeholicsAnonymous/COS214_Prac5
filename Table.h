@@ -8,7 +8,6 @@ class Table {
     bool available;
     int number;
     int size;
-
     Employee* waiter;
     Table *next;
     Table *previous;
