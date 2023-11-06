@@ -2,7 +2,6 @@
 
 #include "Employee.h"
 #include "Table.h"
-class Table;
 
 class Floor {
    private:

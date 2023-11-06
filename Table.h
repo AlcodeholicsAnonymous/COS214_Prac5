@@ -8,13 +8,23 @@ class Table {
     bool available;
     int number;
     int size;
-
-   public:
     Employee* waiter;
     Table *next;
     Table *previous;
-    bool combined;
     Table* combinedTable;
+
+   public:
+    
+    bool combined;
+    
+    void setCombinedTable(Table* combinedTable);
+    Table* getCombinedTable();
+    void setWaiter(Employee* waiter);
+    Employee* getWaiter();
+    void setNext(Table* next);
+    Table* getNext();
+    void setPrevious(Table* previous);
+    Table* getPrevious();
 
     void setAvailable(bool available);
 	bool getAvailable();
