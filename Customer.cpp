@@ -28,15 +28,18 @@ void Customer::createOrder(){
 }
 
 void Customer::eat(Order* o){
-	srand(static_cast<unsigned int>(time(nullptr)));
-    int time = 5 + rand() % 16;
+    cout << "Customer " << cusId << " is eating their meal" << endl;
+    o->getMeal();
+	// srand(static_cast<unsigned int>(time(nullptr)));
+    // int time = 5 + rand() % 16;
 
-	cout << "Customer " << cusId << "will eat for " << time << endl;
-	this_thread::sleep_for(chrono::seconds(time));
+	// cout << "Customer " << cusId << "will eat for " << time << endl;
+	// this_thread::sleep_for(chrono::seconds(time));
 
-    int yes = rand() % 2;
+    // int yes = rand() % 2;
 
-    // table->waiter->notify(yes, o);
+    // table->waiter->notify(true, o);
+
 }
 
 int Customer::getId() {

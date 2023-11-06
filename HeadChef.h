@@ -13,11 +13,12 @@ private:
     CategoryChef* chefs;
 public:
     string type = "HeadChef";
-    HeadChef(CategoryChef* chefs);
-    void startOrder(Order* o);
-    void delegateOrder(Order* o);
-    void plateOrder(Order* _finishedOrder);
-    void handleRequest(Order* o);
+    HeadChef(CategoryChef*);
+    void startOrder(Order*);
+    void delegateOrder(Order*);
+    void plateOrder(Order*);
+    void handleRequest(Order*);
+    void notify(Order *o);
 };
 
 

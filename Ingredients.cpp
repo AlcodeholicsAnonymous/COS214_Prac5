@@ -1,4 +1,3 @@
-#pragma once
 using namespace std;
 #include "Ingredients.h"
 
@@ -61,7 +60,7 @@ Meal* Ingredients::getNext(){
     return this->next;
 }
 
- Meal* Ingredients::getChild(int child){
+ Meal* Ingredients::getChild(int){
     return nullptr;
  }
 

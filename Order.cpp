@@ -30,33 +30,18 @@ int Order::getCat(string meal){
 
 void Order::addMeal(string mealName) {
     Meal* newMeal;
-    // if(getCat(mealName) == 1){
-    //     meal = new Ingredients(mealName);
-    // }else{
-    //     meal = new Dish(mealName);
-    // }
-    // meal->setNext(head);
-    // head = meal;
-    if(head == nullptr)
-    {
-        if(getCat(mealName) == 1) {
-            head = new Ingredients(mealName);
-        } else {
-            head = new Dish(mealName);
-        }
+    if(getCat(mealName) == 1){
+        newMeal = new Ingredients(mealName);
+    }else{
+        newMeal = new Dish(mealName);
     }
-    else
-    {
-        Meal* mealPtr = head;
-        while (mealPtr->getNext() != nullptr) {
-            mealPtr = mealPtr->getNext();
-        }
-        if(getCat(mealName) == 1) {
-            mealPtr->setNext(new Ingredients(mealName));
-        } else {
-            mealPtr->setNext(new Dish(mealName));
-        }
+
+    cout << newMeal->getName() << endl;
+    if(head != nullptr){
+    newMeal->setNext(head);
+    head = newMeal;
     }
+    else{head = newMeal;}
 }
 
 bool Order::removeMeal(string mealName) {

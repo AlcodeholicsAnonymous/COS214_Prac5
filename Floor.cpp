@@ -71,6 +71,8 @@ bool Floor::split(Table* table) {
 
 void Floor::attach(Employee* employee, Table* table) {
     // table->setWaiter(employee);
+    employee->getID();
+    table->getAvailable();
 }
 
 void Floor::detach(Table* table) {

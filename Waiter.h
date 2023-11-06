@@ -20,7 +20,7 @@ public:
     void addToTab(Order* o);
     void payTab(Order* o);
     void createOrder(Customer* c);
-    void handleRequest(Order* o) {};
+    void handleRequest(Order*) {};
 
 	int getID();
 };

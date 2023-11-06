@@ -17,5 +17,6 @@ public:
     void setSuccessor(Employee* successor);
     virtual void handleRequest(Order* o);
     virtual void notify(Table*);
+    virtual void notify(Order *o);
 };
 

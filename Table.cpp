@@ -48,15 +48,17 @@ Table::~Table() {
 
 void Table::setCombinedTable(Table * combinedTable)
 {
+	combinedTable->getAvailable();
 }
 
 Table * Table::getCombinedTable()
 {
-return nullptr;
+	return this->combinedTable;
 }
 
 void Table::setWaiter(Waiter * waiter)
 {
+	this->waiter = waiter;
 }
 
 Waiter * Table::getWaiter()
@@ -66,6 +68,7 @@ return nullptr;
 
 void Table::setNext(Table * next)
 {
+	this->next = next;
 }
 
 Table * Table::getNext()
@@ -75,6 +78,7 @@ return nullptr;
 
 void Table::setPrevious(Table * previous)
 {
+	this->previous = previous;
 }
 
 Table * Table::getPrevious()

@@ -24,6 +24,7 @@ void Tab::addToTab(OrderBackup* ob) {
 
 int Tab::getTotal() {
 	//iterate through orders to iterate through meals & calc tot
+	return total;
 }
 
 Tab* Tab::getNext() {

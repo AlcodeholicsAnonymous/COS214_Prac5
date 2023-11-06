@@ -19,15 +19,15 @@ Meal* Meal::getMeal() {
     return this;
 }
 
-void Meal::add(Meal m)
+void Meal::add(Meal)
 {
 }
 
-void Meal::remove(Meal m)
+void Meal::remove(Meal)
 {
 }
 
-Meal *Meal::getChild(int child)
+Meal *Meal::getChild(int)
 {
     return nullptr;
 }

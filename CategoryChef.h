@@ -10,7 +10,7 @@ using namespace std;
 class CategoryChef: public Chef {
 private:
     int category;
-    Meal meal;
+    Meal *meal;
     CategoryChef* nextChef;
     
 public:
@@ -23,9 +23,9 @@ public:
     void setCategory(int cat) {
         this->category = cat;
     }
-    void prepare(Meal meal);
-    Meal getMeal();
-    void handleRequest(Order* o);
+    void prepare(Meal *meal);
+    Meal *getMeal();
+    void handleRequest(Meal *meal);
     void setNextChef(CategoryChef* nextChef) {
         this->nextChef = nextChef;
     }
@@ -33,4 +33,5 @@ public:
         return this->nextChef;
     }
     void notify(Table*);
+    void notify(Order *);
 };

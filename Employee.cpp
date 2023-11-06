@@ -17,10 +17,14 @@ void Employee::setSuccessor(Employee *_successor) {
     this->successor = _successor;
 }
 
-void Employee::handleRequest(Order *o)
+void Employee::handleRequest(Order *)
 {
 }
 
 void Employee::notify(Table *)
+{
+}
+
+void Employee::notify(Order * )
 {
 }

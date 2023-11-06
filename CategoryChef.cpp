@@ -12,19 +12,23 @@ CategoryChef::CategoryChef(int cat) {
 
 /// @brief Order has been delegated to this chef. The chef prepares the meal and sets the meal to the finished meal
 /// @param meal 
-void CategoryChef::prepare(Meal meal) {
-    // Meal _finishedMeal = Meal();
+void CategoryChef::prepare(Meal *_meal) {
+    this->meal = _meal;
 }
 
-Meal CategoryChef::getMeal() {
+Meal* CategoryChef::getMeal() {
     return this->meal;
 }
 
-void CategoryChef::handleRequest(Order* o) {
+void CategoryChef::handleRequest(Meal* meal) {
     cout << "CategoryChef handling request" << endl;
     this->prepare(meal);
 }
 
 void CategoryChef::notify(Table *)
+{
+}
+
+void CategoryChef::notify(Order*)
 {
 }
