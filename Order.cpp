@@ -75,7 +75,6 @@ Customer* Order::getCustomer() {
 void Order::setCustomer(Customer* c) {
     customer = c;
 }
-
 OrderBackup* Order::makeBackup() {
     int price = 0;
     //iterate through meals and calc price
@@ -88,4 +87,3 @@ void Order::restore(OrderBackup* ob) {
     customer = ob->getCustomer();
     next = nullptr;
 }
-
