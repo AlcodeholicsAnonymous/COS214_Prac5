@@ -59,16 +59,16 @@ void HeadChef::delegateOrder(Order* o) {
     cout << endl;
 
     // _finishedOrder->printOrder();
-    
+    _finishedOrder->setState(o->getState());
     this->plateOrder(_finishedOrder);
 }
 
 /// @brief  Set the order to the finished order and call the waiter to come and fetch it.
 /// @param _finishedOrder 
 void HeadChef::plateOrder(Order* _finishedOrder) {
-    cout << "\nOrder Status changed from: " << _finishedOrder->getState() << ", to: ";
+    cout << "Order Status changed from: " << _finishedOrder->getState() << ", to: ";
     _finishedOrder->setState("Completed");
-    cout << _finishedOrder->getState() << endl;
+    cout << _finishedOrder->getState() << endl << endl;
     this->setOrder(_finishedOrder);
     this->successor->notify(_finishedOrder);
 }

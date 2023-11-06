@@ -25,6 +25,10 @@ Customer* OrderBackup::getCustomer() {
     return customer;
 }
 
+int OrderBackup::getPrice() {
+    return this->price;
+}
+
 OrderBackup* OrderBackup::getNext() {
     cout << "OrderBackup's getNext() called" << endl;
     return next;

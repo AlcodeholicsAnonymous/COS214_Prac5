@@ -20,6 +20,7 @@ void Tab::addToTab(OrderBackup* ob) {
         orderPtr = orderPtr->getNext();
     }
     orderPtr->setNext(ob);		//Add new order to tail of orders in tab
+	total += ob->getPrice();
 }
 
 int Tab::getTotal() {

@@ -21,11 +21,15 @@ void Customer::eat(Order* o){
 	cout << "Customer " << cusId << " will eat for " << time << " seconds" << endl;
 	// this_thread::sleep_for(chrono::seconds(time));               // Uncomment!!!!!
 
-    bool payingNow = rand() % 2;
+    bool payingNow = false;
 
     cout << "Customer is done eating" << endl;
-    // cout << "Random bool: " << payingNow << endl;
-    payingNow = false;
+    cout << "Would you like to pay now? (y/n)" << endl;
+	string input;
+	cin >> input;
+	if (input == "y") 
+		payingNow = true;
+    
     table->getWaiter()->notify(payingNow, o);
 
 }

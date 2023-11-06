@@ -33,7 +33,7 @@ void Waiter::notify(Table*) {
 
 void Waiter::notify(bool method, Order* o) {
     if (method) {
-        // cout << "Customer is paying now\n";
+        cout << "Customer is paying now\n";
         payTab(o);
     } else {
         cout << "Customer is paying later\n";
@@ -44,10 +44,11 @@ void Waiter::notify(bool method, Order* o) {
 void Waiter::addToTab(Order* o) {
     cout << "Adding to tab\n";
     database->addToTab(o, o->getCustomer()->getID());
+    
 }
 
 void Waiter::payTab(Order* o) {
-    database->addToTab(o, o->getCustomer()->getId());
+    this->addToTab(o);
     database->payTab(o->getCustomer()->getId());
 }
 
@@ -60,6 +61,8 @@ void Waiter::createOrder(Customer *_c){
     // o->addMeal(mealList[24]);
     // o->addMeal(mealList[29]);
     // o->addMeal(mealList[29]);
+
+    string str = "";
 
     bool flag = true;
     int choice, quantity;
@@ -75,7 +78,7 @@ void Waiter::createOrder(Customer *_c){
         cout << "Please enter the quantity: \n";
         cin >> quantity;
 
-        
+        str += to_string(quantity) + " x " + mealList[choice] + "\n";
 
         for (int i = 0; i < quantity; i++)
         {
@@ -83,7 +86,8 @@ void Waiter::createOrder(Customer *_c){
         }
     }
 
-    o->printOrder();
+    cout << "\nOrder contents:" << endl;
+    cout << str << endl;
     this->takeOrder(o);
 }
 void Waiter::handleRequest(Order* o) {

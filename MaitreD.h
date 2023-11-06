@@ -23,10 +23,3 @@ class MaitreD : public Employee
 		bool split(Table t);
 		void assignWaiter(Waiter* w, Table* t);
 };
-
-MaitreD::MaitreD(){
-}
-
-MaitreD::~MaitreD()
-{
-}

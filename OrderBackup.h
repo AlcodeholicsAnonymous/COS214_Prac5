@@ -17,6 +17,7 @@ class OrderBackup {
         Meal* getMeals();
         string getState();
         Customer* getCustomer();
+        int getPrice();
 
         OrderBackup* getNext();
         void setNext(OrderBackup* ob);
