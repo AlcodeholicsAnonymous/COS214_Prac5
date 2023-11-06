@@ -1,31 +1,17 @@
 #pragma once
+class Order;
+class Waiter;
 
-#include "Waiter.h"
-
-static int maxId = 0;
 class Person{
 private:
-	Waiter* mediator;
+    Waiter *mediator;
 protected:
-	int id;
-	Person();
-	~Person();
-	Waiter* getMediator();
-	void setMediator(Waiter* w);
+    static int maxId;
+    int id;
+    Person();
+    ~Person();
+    Waiter* getMediator();
+    void setMediator(Waiter* w);
+public:
+    
 };
-
-Person::Person(){
-	id = ++maxId;
-}
-
-Person::~Person(){
-	delete mediator;
-}
-
-Waiter* Person::getMediator() {
-	return mediator;
-}
-
-void Person::setMediator(Waiter* w) {
-	mediator = w;
-}
