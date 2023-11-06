@@ -1,7 +1,9 @@
 #pragma once
 
-#include "Waiter.h"
+// #include "Waiter.h"
 #include "Floor.h"
+
+class Waiter;
 
 class Table {
    private:
@@ -9,6 +11,7 @@ class Table {
     int number;
     int size;
     Waiter* waiter;
+
     Table *next;
     Table *previous;
     Table* combinedTable;

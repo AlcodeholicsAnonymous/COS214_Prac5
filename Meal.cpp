@@ -55,3 +55,7 @@ int Meal::getCost()
 {
     return 0;
 }
+
+Meal::~Meal()
+{
+}

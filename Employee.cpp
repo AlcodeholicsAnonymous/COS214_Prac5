@@ -20,3 +20,7 @@ void Employee::setSuccessor(Employee *successor) {
 void Employee::handleRequest(Order *o)
 {
 }
+
+void Employee::notify(Table *)
+{
+}

@@ -24,3 +24,7 @@ void CategoryChef::handleRequest(Meal meal) {
     cout << "CategoryChef handling request" << endl;
     this->prepare(meal);
 }
+
+void CategoryChef::notify(Table *)
+{
+}

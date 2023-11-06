@@ -45,3 +45,39 @@ Table::~Table() {
     delete previous;
     delete combinedTable;
 }
+
+void Table::setCombinedTable(Table * combinedTable)
+{
+}
+
+Table * Table::getCombinedTable()
+{
+return nullptr;
+}
+
+void Table::setWaiter(Waiter * waiter)
+{
+}
+
+Waiter * Table::getWaiter()
+{
+return nullptr;
+}
+
+void Table::setNext(Table * next)
+{
+}
+
+Table * Table::getNext()
+{
+return nullptr;
+}
+
+void Table::setPrevious(Table * previous)
+{
+}
+
+Table * Table::getPrevious()
+{
+return nullptr;
+}

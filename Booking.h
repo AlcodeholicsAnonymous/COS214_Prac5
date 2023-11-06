@@ -8,7 +8,8 @@ protected:
 public:
 	Booking(/* args */);
 	Table *getTable();
-    bool getBooked();
+	
+	bool getBooked();
 	~Booking();
 };
 

@@ -19,6 +19,7 @@ void Customer::createOrder(){
 	// o->setCustomer(this);
 	// Order* o = new Order(this);
 	//table.waiter.takeOrder(o)
+	
 	table->getWaiter()->createOrder();
 }
 

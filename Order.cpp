@@ -17,7 +17,7 @@ Order::~Order() {
     
 }
 
-int getCat(string meal){
+int Order::getCat(string meal){
 
     for(int i = 0; i<206;i++){
         if(meal == foodBank[i].name){
