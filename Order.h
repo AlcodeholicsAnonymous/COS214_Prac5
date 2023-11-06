@@ -2,7 +2,7 @@
 #include <string>
 #include "Customer.h"
 #include "Meal.h"
-// #include "OrderBackup.h"
+#include "OrderBackup.h"
 using namespace std;
 
 class Order {
@@ -30,9 +30,9 @@ public:
 	
 	Order* getNextOrder();
 	void setNextOrder(Order* o);
-
-	// OrderBackup* makeBackup();
-	// void restore(OrderBackup* ob);
+-
+	OrderBackup* makeBackup();
+	void restore(OrderBackup* ob);
 };
 
 //Linked list of meals

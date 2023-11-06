@@ -75,17 +75,15 @@ Customer* Order::getCustomer() {
 void Order::setCustomer(Customer* c) {
     customer = c;
 }
+OrderBackup* Order::makeBackup() {
+    int price = 0;
+    //iterate through meals and calc price
+    return new OrderBackup(meals, state, customer, next, price);
+}
 
-// OrderBackup* Order::makeBackup() {
-//     int price = 0;
-//     //iterate through meals and calc price
-//     return new OrderBackup(meals, state, customer, next, price);
-// }
-
-// void Order::restore(OrderBackup* ob) {
-//     meals = ob->getMeals();
-//     state = ob->getState();
-//     customer = ob->getCustomer();
-//     next = nullptr;
-// }
-
+void Order::restore(OrderBackup* ob) {
+    meals = ob->getMeals();
+    state = ob->getState();
+    customer = ob->getCustomer();
+    next = nullptr;
+}
