@@ -29,36 +29,36 @@ void HeadChef::delegateOrder(Order* o) {
     o->setState("Delegated");
     cout << o->getState() << endl;
     Order* _finishedOrder = new Order(o->getCustomer());
+
     
-    CategoryChef *tempChefs = this->chefs;
-    Meal* tempMeal = o->getMeal();
-    while (tempMeal != nullptr) {
-        cout << "Category Chefs Creating: " << o->getMeal()->getName() << endl;
-        int category = o->getMeal()->getCategory();
+    Meal* mealPtr = o->getHead();
+    while (mealPtr != nullptr) {
+        CategoryChef *tempChefs = this->chefs;
+        // cout << "Category Chefs Creating: " << mealPtr->getName() << endl;
+        int category = mealPtr->getCategory();
 
         if (category == 1) {
-            _finishedOrder->addMeal(tempMeal->getName());
-            tempMeal = tempMeal->getNext();
+            _finishedOrder->addMeal(mealPtr->getName());
+            mealPtr = mealPtr->getNext();
             continue;
         }
 
-        cout << "Category: " << category << " (" << tempChefs->categories[category - 2] << ")" << endl;
+        // cout << "Category: " << category << " (" << tempChefs->categories[category - 2] << ")" << endl;
         for (int i = 0; i < 9; i++)
         {
-            
             if (tempChefs->getCategory() == category) {
-                tempChefs->handleRequest(tempMeal);
+                tempChefs->handleRequest(mealPtr);
                 _finishedOrder->addMeal(tempChefs->getMeal()->getName());
                 break;
             }
             tempChefs = tempChefs->getNextChef();
         }
-        
-        // tempChefs->handleRequest(_finishedOrder);
-        // tempChefs = this->chefs;
-        // o->removeMeal(o->getMeal()->getName());
-        tempMeal = tempMeal->getNext();
+        mealPtr = mealPtr->getNext();
     }
+    
+    cout << endl;
+
+    // _finishedOrder->printOrder();
     
     this->plateOrder(_finishedOrder);
 }
@@ -70,14 +70,9 @@ void HeadChef::plateOrder(Order* _finishedOrder) {
     _finishedOrder->setState("Completed");
     cout << _finishedOrder->getState() << endl;
     this->setOrder(_finishedOrder);
-
-    // Call the waiter to come and fetch the order
-    // this->notify(_finishedOrder);
-    // this->notify();
     this->successor->notify(_finishedOrder);
 }
 void HeadChef::handleRequest(Order* o) {
-    // cout << "HeadChef handling request" << endl;
     this->startOrder(o);
 }
 

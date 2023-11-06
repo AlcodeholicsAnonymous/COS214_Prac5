@@ -26,6 +26,7 @@ Customer* OrderBackup::getCustomer() {
 }
 
 OrderBackup* OrderBackup::getNext() {
+    cout << "OrderBackup's getNext() called" << endl;
     return next;
 }
 

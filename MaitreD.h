@@ -14,7 +14,7 @@ class MaitreD : public Employee
 		Table* tables;
 		Waiter* waiters;
 	public:
-		MaitreD(int employeeNr);
+		MaitreD();
 		~MaitreD();
 		Table* seat(Customer* c);
 		void addBooking(Booking* b);
@@ -24,7 +24,7 @@ class MaitreD : public Employee
 		void assignWaiter(Waiter* w, Table* t);
 };
 
-MaitreD::MaitreD(int employeeNr) : Employee(employeeNr){
+MaitreD::MaitreD(){
 }
 
 MaitreD::~MaitreD()

@@ -21,6 +21,7 @@ public:
 	Meal* getMeals();				//Returns meals linked list
 	Meal* getMeal();					//Returns current meal
 	Meal* getNextMeal();				//Returns next meal & set curMeal to next meal
+	Meal* getHead() { return head; }
 	
 	Customer* getCustomer();			
 	void setCustomer(Customer* c);

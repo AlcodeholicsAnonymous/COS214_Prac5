@@ -36,12 +36,13 @@ void Order::addMeal(string mealName) {
         newMeal = new Dish(mealName);
     }
 
-    cout << newMeal->getName() << endl;
     if(head != nullptr){
-    newMeal->setNext(head);
-    head = newMeal;
+        newMeal->setNext(head);
+        head = newMeal;
     }
-    else{head = newMeal;}
+    else{
+        head = newMeal;
+    }
 }
 
 bool Order::removeMeal(string mealName) {
@@ -103,6 +104,7 @@ OrderBackup* Order::makeBackup() {
         price += mealPtr->getCost();
         mealPtr = mealPtr->getNext();
     }
+    cout << "Price: " << price << endl;
     return new OrderBackup(head, state, customer, price);
 }
 
@@ -119,9 +121,11 @@ string* Order::getDishList() {
     
     for(int i = 0;i < 206;i++){
         head[i] = foodBank[i].name;
+        // cout << head[i] << endl;
     }
 
     return head;
+    // return foodBank;
 
 }
 void Order::printOrder(){

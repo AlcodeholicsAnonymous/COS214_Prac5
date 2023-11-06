@@ -3,10 +3,11 @@ using namespace std;
 #include "Tab.h"
 #include "Order.h"
 class Database {
-	private: 
+private: 
         Tab* db;
         void addTab(Tab* t);
-	public: 
+public: 
+        void randomPrintStatement();
         Database();
         void addToTab(Order* o, int custId);
         bool payTab(int custId);

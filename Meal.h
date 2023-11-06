@@ -12,7 +12,7 @@ private:
 public:
 	Meal();
     void setNext(Meal* meal);
-    virtual Meal* getNext();
+    Meal* getNext();
     virtual Meal* getMeal();
     virtual void add(Meal m);
     virtual void remove(Meal m);

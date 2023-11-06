@@ -1,8 +1,10 @@
 using namespace std;
 #include "Database.h"
 
+
+
 Database::Database() {
-    db = nullptr;
+    db = new Tab(13);
 }
 
 Database::~Database() {
@@ -26,8 +28,9 @@ void Database::addTab(Tab* t) {
 
 void Database::addToTab(Order* o, int custId) {
     //Create memento of order
+    cout << "Creating backup\n";
     OrderBackup* ob = o->makeBackup();
-
+    cout << "Order backed up\n";
     //if db empty -> create new tab, add order to it and add tab to db
     if (db == nullptr) {
         Tab* newTab = new Tab(custId);
@@ -74,4 +77,9 @@ bool Database::payTab(int custId) {
         return true;
     }
     return false;           //Tab was not found (again technically this can't happen)
+}
+
+void Database::randomPrintStatement()
+{
+    cout << "Hello There!";
 }

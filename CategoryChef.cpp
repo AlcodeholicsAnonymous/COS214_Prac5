@@ -21,7 +21,7 @@ Meal* CategoryChef::getMeal() {
 }
 
 void CategoryChef::handleRequest(Meal* meal) {
-    cout << "CategoryChef handling request" << endl;
+    // cout << "CategoryChef handling request" << endl;
     this->prepare(meal);
 }
 

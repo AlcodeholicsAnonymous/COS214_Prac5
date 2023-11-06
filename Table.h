@@ -1,10 +1,14 @@
 #pragma once
 
-// #include "Waiter.h"
 #include "Floor.h"
 
 class Waiter;
+//generate doxygen comments
 
+/**
+ * @brief Table class
+ *  This clas
+ */
 class Table {
    private:
     bool available;
