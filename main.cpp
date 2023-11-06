@@ -15,15 +15,15 @@ int main() {
     cout << endl;
     
     Order* order = new Order();
-    Employee* headChef = new HeadChef(populateChefs());
+    Employee* headChef = HeadChef::getHeadChef();
     Database* database = new Database();
     Waiter* waiter = new Waiter(database);
-    cout << "Waiter ID: " << waiter->getID() << endl;
     Table* table = new Table(5, true, 1);
     table->setWaiter(waiter);
     Booking* booking = new Booking(table);
     Customer* customer = new Customer(booking, 2);
     waiter->setSuccessor(headChef);
+    // waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
     string* menu = order->getDishList();
 
@@ -81,25 +81,4 @@ void displayMenu() {
         cout << "|-" << i << ". " << foodBank[i].name << endl;
     }
     cout << "________________________________" << endl;
-}
-
-CategoryChef* populateChefs() {
-    CategoryChef *meatChef = new CategoryChef(2);
-    CategoryChef *fishChef = new CategoryChef(3);
-    meatChef->setNextChef(fishChef);
-    CategoryChef *pizzaChef = new CategoryChef(4);
-    fishChef->setNextChef(pizzaChef);
-    CategoryChef *fryChef = new CategoryChef(5);
-    pizzaChef->setNextChef(fryChef);
-    CategoryChef *burgerChef = new CategoryChef(6);
-    fryChef->setNextChef(burgerChef);
-    CategoryChef *pastryChef = new CategoryChef(7);
-    burgerChef->setNextChef(pastryChef);
-    CategoryChef *pastaChef = new CategoryChef(8);
-    pastryChef->setNextChef(pastaChef);
-    CategoryChef *saladsChef = new CategoryChef(9);
-    pastaChef->setNextChef(saladsChef);
-    CategoryChef *drinksChef = new CategoryChef(10);
-    saladsChef->setNextChef(drinksChef);
-    return meatChef;
 }

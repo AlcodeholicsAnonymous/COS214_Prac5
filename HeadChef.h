@@ -12,13 +12,16 @@ class HeadChef: public Chef {
 private:
     CategoryChef* chefs;
 public:
+    static HeadChef* headChef;
     string type = "HeadChef";
-    HeadChef(CategoryChef*);
     void startOrder(Order*);
     void delegateOrder(Order*);
     void plateOrder(Order*);
     void handleRequest(Order*);
     void notify(Order *o);
+    static HeadChef* getHeadChef();
+protected:
+    HeadChef(CategoryChef*);
 };
 
 

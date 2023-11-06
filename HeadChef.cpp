@@ -1,15 +1,34 @@
 #include "HeadChef.h"
 
+HeadChef* HeadChef::headChef = nullptr;
+
 HeadChef::HeadChef(CategoryChef* _chefs) {
     this->chefs = _chefs;
-    // cout << "HeadChef created with id: " << this->id << ", They are in charge of chefs:" << endl;
-    // cout << "{" << endl;
-    // while(chefs != nullptr) {
-    //     cout << "\tCategory chef with category: " << chefs->getCategory() << "\t(" << chefs->categories[chefs->getCategory() - 2] << ")" << endl;
-    //     chefs = chefs->getNextChef();
-    // }
+}
 
-    // cout << "}" << endl;
+HeadChef * HeadChef::getHeadChef()
+{
+    if (headChef == nullptr) {
+        CategoryChef *meatChef = new CategoryChef(2);
+        CategoryChef *fishChef = new CategoryChef(3);
+        meatChef->setNextChef(fishChef);
+        CategoryChef *pizzaChef = new CategoryChef(4);
+        fishChef->setNextChef(pizzaChef);
+        CategoryChef *fryChef = new CategoryChef(5);
+        pizzaChef->setNextChef(fryChef);
+        CategoryChef *burgerChef = new CategoryChef(6);
+        fryChef->setNextChef(burgerChef);
+        CategoryChef *pastryChef = new CategoryChef(7);
+        burgerChef->setNextChef(pastryChef);
+        CategoryChef *pastaChef = new CategoryChef(8);
+        pastryChef->setNextChef(pastaChef);
+        CategoryChef *saladsChef = new CategoryChef(9);
+        pastaChef->setNextChef(saladsChef);
+        CategoryChef *drinksChef = new CategoryChef(10);
+        saladsChef->setNextChef(drinksChef);
+        headChef = new HeadChef(meatChef);
+    }
+    return headChef;
 }
 
 /// @brief Start the order by setting the order and changing the state of the order to in progress
