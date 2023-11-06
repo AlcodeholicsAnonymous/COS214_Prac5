@@ -1,11 +1,8 @@
 #include "Waiter.h"
 
-Waiter::Waiter() {
+Waiter::Waiter(Database* db) {
+	database = db;
 }
-
-// Waiter::Waiter(Database* db) {
-// 	database = db;
-// }
 
 Waiter::~Waiter() {
 }
@@ -30,19 +27,19 @@ void Waiter::notify(Table* t) {
 
 }
 
-// void Waiter::notify(bool method, Order* o) {
-//     if (method) {
-//         payTab(o);
-//     } else {
-//         addToTab(o);
-//     }
-// }
+void Waiter::notify(bool method, Order* o) {
+    if (method) {
+        payTab(o);
+    } else {
+        addToTab(o);
+    }
+}
 
-// void Waiter::addToTab(Order* o) {
-//     database->addToTab(o);
-// }
+void Waiter::addToTab(Order* o) {
+    database->addToTab(o);
+}
 
-// void Waiter::payTab(Order* o) {
-//     database->addToTab(o);
-//     database->payTab(o->getCustomer()->getId());
-// }
+void Waiter::payTab(Order* o) {
+    database->addToTab(o);
+    database->payTab(o->getCustomer()->getId());
+}
