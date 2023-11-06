@@ -5,11 +5,11 @@ void Floor::add(Table* table) {
         this->head = table;
     } else {
         Table* curr = head;
-        while (curr->next != nullptr) {
-            curr = curr->next;
+        while (curr->getNext() != nullptr) {
+            curr = curr->getNext();
         }
-        curr->next = table;
-        table->previous = curr;
+        curr->setNext(table);
+        table->setPrevious(curr);
     }
 }
 
@@ -18,20 +18,20 @@ Table* Floor::remove(Table* table) {
         return nullptr;
     } else {
         if (this->head == table) {
-            this->head = this->head->next;
-            this->head->previous = nullptr;
+            this->head = this->head->getNext();
+            this->head->setPrevious(nullptr);
             return table;
         } else {
             Table* curr = this->head;
-            while (curr->next != nullptr) {
-                if (curr->next == table) {
-                    curr->next = curr->next->next;
-                    curr->next->previous = curr;
-                    table->next = nullptr;
-                    table->previous = nullptr;
+            while (curr->getNext() != nullptr) {
+                if (curr->getNext() == table) {
+                    curr->setNext(curr->getNext()->getNext());
+                    curr->getNext()->setPrevious(curr);
+                    table->setNext(nullptr);
+                    table->setPrevious(nullptr)  ;
                     return table;
                 }
-                curr = curr->next;
+                curr = curr->getNext();
             }
         }
     }
@@ -54,8 +54,8 @@ bool Floor::combine(Table* table1, Table* table2) {
 
 bool Floor::split(Table* table) {
     if (table->getAvailable() && table->combined) {
-        Table* newTable1 = new Table(table->combinedTable->getSize(), true, table->getNumber());
-        Table* newTable2 = new Table(table->getSize() - table->combinedTable->getSize(), true, table->combinedTable->getNumber());
+        Table* newTable1 = new Table(table->getCombinedTable()->getSize(), true, table->getNumber());
+        Table* newTable2 = new Table(table->getSize() - table->getCombinedTable()->getSize(), true, table->getCombinedTable()->getNumber());
         this->add(newTable1);
         this->add(newTable2);
         if (this->remove(table) == nullptr) {
@@ -67,16 +67,12 @@ bool Floor::split(Table* table) {
 }
 
 void Floor::attach(Employee* employee, Table* table) {
-    table->waiter = employee;
+    table->setWaiter(employee);
 }
 
 void Floor::detach(Employee* employee, Table* table) {
-    table->waiter = nullptr;
+    table->setWaiter(nullptr);
 }
-
-// void Floor::notify() {
-
-// }
 
 Floor::Floor() {
 
