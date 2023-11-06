@@ -28,5 +28,51 @@ Ingredients::Ingredients (string ingre) : Meal(){
 
 }
 
+string Ingredients::getName(){
+    return this->name;
+}
+
+int Ingredients::getCategory(){
+    return this->category;
+}
+
+int Ingredients::getMin(){
+    return this->min;
+}
+
+int Ingredients::getMax(){
+    return this->max;
+}
+
+int Ingredients::getCost(){
+    return this->cost;
+}
+
+void Ingredients::setNext(Meal* nextMeal){
+    this->next = nextMeal;
+}
+
+void Ingredients::removeNext(){
+    Meal* removing = this->next;
+    this->next = removing->getNext();
+}
+
+Meal* Ingredients::getNext(){
+    return this->next;
+}
+
+ Meal* Ingredients::getChild(int child){
+    return nullptr;
+ }
+
+ int Ingredients::getAmountIngredients(){
+    return 0;
+}
+
+Meal* Ingredients::getThisMeal(){
+    return nullptr;
+}
+
+
 Ingredients ::~Ingredients (){
 }

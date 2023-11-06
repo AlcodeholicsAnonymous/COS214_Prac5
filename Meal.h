@@ -1,7 +1,6 @@
 #pragma once
 using namespace std;
-
-#include "FoodBank.h"
+#include "FoodBank.h";
 #include <array>
 #include <string>
 
@@ -22,5 +21,5 @@ public:
     virtual int getMin();
     virtual int getMax();
     virtual int getCost();
-    // virtual ~Meal();
+	~Meal();
 };
