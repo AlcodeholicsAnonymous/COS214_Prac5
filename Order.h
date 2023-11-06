@@ -30,7 +30,6 @@ public:
 	
 	Order* getNextOrder();
 	void setNextOrder(Order* o);
--
 	OrderBackup* makeBackup();
 	void restore(OrderBackup* ob);
 };
