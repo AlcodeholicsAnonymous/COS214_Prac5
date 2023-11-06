@@ -1,5 +1,5 @@
 #include "Floor.h"
-
+#include "Table.h"
 void Floor::add(Table* table) {
     if (this->head == nullptr) {
         this->head = table;
@@ -36,6 +36,7 @@ Table* Floor::remove(Table* table) {
             }
         }
     }
+    return nullptr;
 }
 
 bool Floor::combine(Table* table1, Table* table2) {
@@ -69,10 +70,10 @@ bool Floor::split(Table* table) {
 }
 
 void Floor::attach(Employee* employee, Table* table) {
-    table->setWaiter(employee);
+    // table->setWaiter(employee);
 }
 
-void Floor::detach(Employee* employee, Table* table) {
+void Floor::detach(Table* table) {
     table->setWaiter(nullptr);
 }
 Floor::Floor() {

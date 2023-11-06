@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Employee.h"
-#include "Table.h"
+
+class Table;
 
 class Floor {
    private:
@@ -13,7 +14,7 @@ class Floor {
     Table* remove(Table* table);
     bool combine(Table* table1, Table* table2);
     bool split(Table* table);
-    void detach(Employee* employee, Table* table);
+    void detach(Table* table);
     void attach(Employee* employee, Table* table);
     Floor();
     ~Floor();

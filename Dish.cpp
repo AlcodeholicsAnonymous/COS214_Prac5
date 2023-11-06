@@ -117,3 +117,6 @@ void Dish::removeIngredient(Meal* m){
 Meal* Dish::getChild(int child){
     return &this->thisMeal[child];
 }
+Dish::~Dish(){
+    delete[] this->thisMeal;
+}

@@ -1,16 +1,17 @@
 #pragma once
 using namespace std;
 #include "Customer.h"
-#include "Meal.h"
+#include "Dish.h"
 
 class OrderBackup {
 	private:
         Meal* meals;		//head
         string state;
         Customer* customer;
-        Order* next;
+        OrderBackup* next;
+        int price;
 	public:
-        OrderBackup(Meal* meals, string state, Customer* customer, Order* next, int price);
+        OrderBackup(Meal* meals, string state, Customer* customer, int price);
         ~OrderBackup();
 
         Meal* getMeals();

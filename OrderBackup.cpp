@@ -1,11 +1,13 @@
 #include "OrderBackup.h"
 
-OrderBackup::OrderBackup(Meal* m, string s, Customer* c, Order* n):
-    meals(m),
-    state(s),
-    customer(c),
-    next(n)
-    {}
+OrderBackup::OrderBackup(Meal* meals, string state, Customer* customer, int price) 
+{
+    this->meals = meals;
+    this->state = state;
+    this->customer = customer;
+    this->price = price;
+    this->next = nullptr;
+}
 
 OrderBackup::~OrderBackup() {
 
@@ -23,7 +25,7 @@ Customer* OrderBackup::getCustomer() {
     return customer;
 }
 
-Order* OrderBackup::getNext() {
+OrderBackup* OrderBackup::getNext() {
     return next;
 }
 

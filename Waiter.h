@@ -3,7 +3,7 @@
 #include "Order.h"
 #include "Table.h"
 #include "Database.h"
-
+#include "Customer.h"
 
 class Waiter : public Employee {
 private:
@@ -19,6 +19,7 @@ public:
     void notify(bool method, Order* o);
     void addToTab(Order* o);
     void payTab(Order* o);
+    void createOrder();
 
 	int getID();
 };

@@ -43,3 +43,10 @@ void Waiter::payTab(Order* o) {
     database->addToTab(o);
     database->payTab(o->getCustomer()->getId());
 }
+
+void Waiter::createOrder() 
+{
+    Order* o = new Order();
+    
+    // this->takeOrder(o);
+}

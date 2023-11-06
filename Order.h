@@ -1,7 +1,6 @@
 #pragma once
 #include <string>
-#include "Customer.h"
-#include "Meal.h"
+#include "Dish.h"
 #include "OrderBackup.h"
 using namespace std;
 
@@ -10,12 +9,13 @@ private:
 	Meal* meals;		//head
 	string state;
 	Customer* customer;
-	Order* next;
+	// Order* next;
 public:
+	Order();
 	Order(Customer* c);				//Construct empty order & assign customer
 	~Order();
 
-	void addMeal(Meal* meal);		//Add a meal to list
+	void addMeal(string mealName);		//Add a meal to list
 	bool removeMeal(string mealName);	//Remove meal from list - true if it was there - false if not
 	
 	Meal* getMeals();				//Returns meals linked list
@@ -32,6 +32,8 @@ public:
 	void setNextOrder(Order* o);
 	OrderBackup* makeBackup();
 	void restore(OrderBackup* ob);
+	int getCat(string meal);
+	string* getDishList();
 };
 
 //Linked list of meals

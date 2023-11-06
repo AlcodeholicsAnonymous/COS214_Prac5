@@ -4,16 +4,16 @@ using namespace std;
 
 class Tab {
 	private: 
-        int customerId;
-        int total;
-        OrderBackup* orders;
-        Tab* next;
+		int customerId;
+		int total;
+		OrderBackup* orders;
+		Tab* next;
 	public: 
-        Tab(int cId);
-        void addToTab(OrderBackup* ob);
-        int getTotal();
-        Tab* getNext();
-        void setNext(Tab* t);
-        int getCustId();
-        ~Tab();
+		Tab(int cId);
+		void addToTab(OrderBackup* ob);
+		int getTotal();
+		Tab* getNext();
+		void setNext(Tab* t);
+		int getCustId();
+		~Tab();
 };

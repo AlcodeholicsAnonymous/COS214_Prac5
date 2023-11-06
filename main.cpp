@@ -20,8 +20,10 @@ int main() {
     // Order *order = new Order();
     // headChef->startOrder(order);
 
-    Waiter *waiter = new Waiter();
-    cout << "ID: " << waiter->getID() << endl;    
+    // Waiter *waiter = new Waiter();
+    // cout << "ID: " << waiter->getID() << endl;
+
+    
     
 
     cout << "\n";

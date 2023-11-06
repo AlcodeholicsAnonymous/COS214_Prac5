@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Employee.h"
+#include "Waiter.h"
 #include "Floor.h"
 
 class Table {
@@ -8,7 +8,7 @@ class Table {
     bool available;
     int number;
     int size;
-    Employee* waiter;
+    Waiter* waiter;
     Table *next;
     Table *previous;
     Table* combinedTable;
@@ -19,8 +19,8 @@ class Table {
     
     void setCombinedTable(Table* combinedTable);
     Table* getCombinedTable();
-    void setWaiter(Employee* waiter);
-    Employee* getWaiter();
+    void setWaiter(Waiter* waiter);
+    Waiter* getWaiter();
     void setNext(Table* next);
     Table* getNext();
     void setPrevious(Table* previous);

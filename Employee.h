@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include "Person.h"
+class Table;
 using namespace std;
 
 class Employee : public Person {
@@ -15,5 +16,6 @@ public:
     Employee *getSuccessor();
     void setSuccessor(Employee* successor);
     virtual void handleRequest(Order* o);
+    virtual void notify(Table*);
 };
 

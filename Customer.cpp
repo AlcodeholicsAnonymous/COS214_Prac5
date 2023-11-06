@@ -11,9 +11,15 @@ Customer::Customer(Booking *booking, int size){
 }
 
 void Customer::createOrder(){
+	// srand(static_cast<unsigned int>(time(nullptr)));
 
-	//Order* o = ...
+	// int orderCount = (rand() % 10) + 1;
+	
+	// Order* o = new Order();
+	// o->setCustomer(this);
+	// Order* o = new Order(this);
 	//table.waiter.takeOrder(o)
+	table->getWaiter()->createOrder();
 }
 
 void Customer::eat(Order* o){

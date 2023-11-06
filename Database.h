@@ -1,7 +1,7 @@
 #pragma once
 using namespace std;
 #include "Tab.h"
-
+#include "Order.h"
 class Database {
 	private: 
         Tab* db;
