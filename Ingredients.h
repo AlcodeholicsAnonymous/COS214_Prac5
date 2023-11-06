@@ -13,7 +13,6 @@ private:
     int max;
     int cost;
 
-
 public:
     Ingredients(string ingre);
     void setNext(Meal* nextMeal);
@@ -32,5 +31,3 @@ public:
 
     ~Ingredients ();
 };
-
-

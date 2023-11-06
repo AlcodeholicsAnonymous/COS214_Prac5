@@ -21,6 +21,5 @@ public:
     virtual int getMin();
     virtual int getMax();
     virtual int getCost();
-    
 	~Meal();
 };

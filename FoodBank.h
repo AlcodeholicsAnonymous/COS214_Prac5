@@ -14,53 +14,128 @@ using namespace std;
 // 8: pasta
 // 9: salads
 // 10: drinks
-
-
     
-const int ingredPrepMin = 5;
-const int ingredPrepMax = 15;
-const int ingredCost = 10;
+    const int ingredPrepMin = 5;
+    const int ingredPrepMax = 15;
+    const int ingredCost = 10;
+    const int meatPrepMin = 10;
+    const int meatPrepMax = 20;
+    const int meatCost = 20;
+    const int fishMin = 60;
+    const int fishMax = 100;
+    const int fishCost = 100;
+    const int pizzaMin = 150;
+    const int pizzaMax = 200;
+    const int pizzaCost = 90;
+    const int fryMin = 20;
+    const int fryMax = 120;
+    const int fryCost = 50;
+    const int burgerMin = 100;
+    const int burgerMax = 130;
+    const int burgerCost = 110;
+    const int pastryMin = 200;
+    const int pastryMax = 250;
+    const int pastryCost = 75;
+    const int pataMin = 100;
+    const int pastaMax = 150;
+    const int pastaCost = 85;
+    const int saladMin = 20;
+    const int saladMax = 30;
+    const int saladCost = 40;
+    const int drinksMin = 10;
+    const int drinksMax = 50;
+    const int drinkCost = 20;
 
-const int meatPrepMin = 10;
-const int meatPrepMax = 20;
-const int meatCost = 20;
-
-const int fishMin = 60;
-const int fishMax = 100;
-const int fishCost = 100;
-
-const int pizzaMin = 150;
-const int pizzaMax = 200;
-const int pizzaCost = 90;
-
-const int fryMin = 20;
-const int fryMax = 120;
-const int fryCost = 50;
-
-const int burgerMin = 100;
-const int burgerMax = 130;
-const int burgerCost = 110;
-
-const int pastryMin = 200;
-const int pastryMax = 250;
-const int pastryCost = 75;
-
-const int pataMin = 100;
-const int pastaMax = 150;
-const int pastaCost = 85;
-
-const int saladMin = 20;
-const int saladMax = 30;
-const int saladCost = 40;
-
-const int drinksMin = 10;
-const int drinksMax = 50;
-const int drinkCost = 20;
-
-
-// 1: Ingredients 
-
-
+const string cheeseBurgerIng[6] = {"Buns","BeefPatty","Cheddar","Onion","Lettuce","Tomato"};
+const string steak[2] = {"Beef","Herbs"};
+const string lamb[3] ={"Lamb","Herbs","Lemon"};
+const string pork[2] = {"Pork","Herbs"};
+const string chickenCrumbed[2] ={"Chicken","Crumbs"};
+const string chicken[2] ={"Chicken","Crumbs"};
+const string friedHake[6] ={"Hake","Crumbs","Herbs","Garlic","Butter","Lemon"};
+const string grilledHake[5] ={"Hake","Herbs","Garlic","Butter","Lemon"};
+const string salmon[5] = {"Salmon","Herbs","Garlic","Butter","Lemon"};
+const string sole[5] = {"Sole","Herbs","Garlic","Butter","Lemon"};
+const string prawn[5] = {"Pawn","Herbs","Garlic","Butter","Lemon"};
+const string grilledCalamari[5] = {"Calamari","Herbs","Garlic","Butter","Lemon"};
+const string rawTuna[1] = {"Tuna"};
+const string lobster[5] = {"Lobster","Herbs","Garlic","Butter","Lemon"};
+const string mussel[5] = {"Mussels","Herbs","Garlic","Butter","Lemon"};
+const string oyster[3] = {"Oyster","Herbs","Lemon"};
+const string margheritaPizzaIng[2] = {"PizzaBase", "TomatoSauce"};
+const string pepperoniPizzaIng[2] = {"PizzaBase", "Pepperoni"};
+const string vegetarianPizzaIng[6] = {"PizzaBase", "Mozzarella", "TomatoSauce", "Peppers", "Mushroom", "Olives"};
+const string hawaiianPizzaIng[4] = {"PizzaBase", "Mozzarella", "TomatoSauce", "Ham"};
+const string bbqChickenPizzaIng[4] = {"PizzaBase", "Mozzarella", "BBQSauce", "Chicken"};
+const string mushroomPizzaIng[4] = {"PizzaBase", "TomatoSauce", "Mushroom", "Mozzarella"};
+const string veggieSupremePizzaIng[7] = {"PizzaBase", "TomatoSauce", "Mushroom", "Peppers", "Olives", "Onion", "Mozzarella"};
+const string meatLoversPizzaIng[5] = {"PizzaBase", "TomatoSauce", "Pepperoni", "Bacon", "Sausages"};
+const string supremePizzaIng[7] = {"PizzaBase", "TomatoSauce", "Pepperoni", "Olives", "Peppers", "Mushroom", "Sausages"};
+const string whitePizzaIng[3] = {"PizzaBase", "Garlic", "Mozzarella"};
+const string buffaloChickenPizzaIng[4] = {"PizzaBase", "TomatoSauce", "Chicken", "Cheddar"};
+const string bbqPulledPorkPizzaIng[4] = {"PizzaBase", "BBQSauce", "Pulled Pork", "Onion"};
+const string mediterraneanPizzaIng[6] = {"PizzaBase", "TomatoSauce", "Feta", "Olives", "Peppers", "Onion"};
+const string frenchFriesIng[2] = {"Potato", "Salt"};
+const string onionRingsIng[2] = {"Onion", "Batter"};
+const string sweetPotatoFriesIng[2] = {"Squash", "Salt"};
+const string zucchiniFriesIng[2] = {"Zucchini", "Batter"};
+const string curlyFriesIng[2] = {"Potato", "Salt"};
+const string garlicParmesanFriesIng[3] = {"Potato", "Garlic", "Parmesan"};
+const string loadedChiliCheeseFriesIng[4] = {"Potato", "Jalapeno", "Cheddar", "Onions"};
+const string applePieIng[3] = {"PastryDough", "Apples", "Sugar"};
+const string chocolateCroissantIng[3] = {"PastryDough", "Chocolate", "Butter"};
+const string danishPastryIng[3] = {"PastryDough", "Cream", "Apples"};
+const string eclairIng[4] = {"PastryDough", "Cream", "Chocolate", "Vanilla"};
+const string cinnamonRollIng[3] = {"PastryDough", "Cinnamon", "Sugar"};
+const string bbqBaconBurgerIng[6] = {"Buns", "BeefPatty", "Bacon", "BBQ Sauce", "Onion", "Lettuce"};
+const string mushroomSwissBurgerIng[5] = {"Buns", "BeefPatty", "Mushrooms", "Cheddar", "Onion"};
+const string spicyJalapenoBurgerIng[5] = {"Buns", "BeefPatty", "Jalapeno", "Pepper", "Lettuce"};
+const string veggieBurgerIng[6] = {"Buns", "BeefPatty", "Cheddar", "Onion", "Lettuce", "Tomato"};
+const string doublePattyBurgerIng[7] = {"Buns", "BeefPatty", "BeefPatty", "Cheese", "Onion", "Lettuce", "Tomato"};
+const string baconAvocadoBurgerIng[6] = {"Buns", "BeefPatty", "Bacon", "Avocado", "Onion", "Lettuce"};
+const string teriyakiPineappleBurgerIng[5] = {"Buns", "BeefPatty", "Seasoning", "Pineapple", "Lettuce"};
+const string buffaloChickenBurgerIng[4] = {"Buns", "ChickenPatty", "TomatoSauce", "Parmesan"};
+const string blueCheeseBurgerIng[5] = {"Buns", "BeefPatty", "Bacon", "Parmesan", "Lettuce"};
+const string spaghettiAglioEOlioIng[2] = {"Spaghetti", "Garlic"};
+const string penneArrabbiataIng[3] = {"LasagnaStrips", "Sauce", "Parmesan"};
+const string linguineClamsIng[3] = {"LasagnaStrips", "Oyster", "Garlic"};
+const string fettuccinePestoIng[2] = {"Spaghetti", "Sauce"};
+const string cavatelliBroccoliIng[2] = {"Spaghetti", "Broccoli"};
+const string rigatoniTomatoSauceIng[2] = {"Ravioli", "TomatoSauce"};
+const string spaghettiPuttanescaIng[5] = {"Spaghetti", "TomatoSauce", "Olives", "Garlic", "Garlic"};
+const string penneVodkaIng[4] = {"Ravioli", "Vodka", "Cream", "Parmesan"};
+const string linguineAglioEOlioIng[2] = {"Ravioli", "Garlic"};
+const string fettuccineAlfredoIng[4] = {"Spaghetti", "Cream", "Parmesan", "Butter"};
+const string caesarSaladIng[4] = {"Lettuce", "Crumbs", "Parmesan", "OliveOil"};
+const string gardenSaladIng[3] = {"Beans", "Tomato", "Cucumber"};
+const string greekSaladIng[5] = {"Lettuce", "Tomato", "Cucumber", "Olives", "Feta"};
+const string capreseSaladIng[3] = {"Tomato", "Mozzarella", "Herbs"};
+const string cobbSaladIng[6] = {"Beans", "Chicken", "Bacon", "Egg", "Avocado", "Blue Cheese"};
+const string spinachStrawberrySaladIng[4] = {"Lettuce", "Strawberry", "Herbs", "Peas"};
+const string waldorfSaladIng[5] = {"Beans", "Apples", "Garlic", "Herbs", "Sauce"};
+const string asianNoodleSaladIng[5] = {"Noodles", "Cabbage", "Carrots", "Noodles", "Sauce"};
+const string mediterraneanSaladIng[5] = {"Beans", "Tomato", "Cucumber", "Onion", "Feta"};
+const string antipastoSaladIng[6] = {"Beans", "Salami", "Olives", "Anchovies", "Mozzarella", "Sauce"};
+const string cocaColaIng[1] = {"Coke"};
+const string pepsiIng[1] = {"Coke"};
+const string spriteIng[1] = {"Sprite"};
+const string mountainDewIng[1] = {"Fanta"};
+const string rootBeerIng[1] = {"Beer"};
+const string icedTeaIng[1] = {"RooiBos"};
+const string lemonadeIng[3] = {"Lemon","Water","Sugar"};
+const string orangeJuiceIng[1] = {"Fanta"};
+const string cranberryJuiceIng[1] = {"Sauce"};
+const string grapeJuiceIng[1] = {"Wine"};
+const string appleJuiceIng[1] = {"Brandy"};
+const string limeSodaIng[1] = {"Sprite"};
+const string cherrySodaIng[1] = {"Sprite"};
+const string fruitPunchIng[1] = {"Wine"};
+const string lemonLimeSodaIng[1] = {"Sprite"};
+const string mangoSmoothieIng[2] = {"Sauce", "Cream"};
+const string strawberryBananaSmoothieIng[2] = {"Strawberries", "Banana"};
+const string pinaColadaIng[3] = {"Pineapple", "Milk", "Whiskey"};
+const string mojitoIng[3] = {"Lime", "Mint", "Whiskey"};
+const string espressoIng[1] = {"CoffeeBeans"};
 
 struct Food{
 
@@ -69,12 +144,12 @@ struct Food{
     int min;
     int max;
     int cost;
-    string* ingredients;
+    const string* ingredients;
     int size;
 
 };
 
- Food foodBank[206]={
+const Food foodBank[206]={
             {"BeefPatty",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}
             ,{"Cheddar",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}
             ,{"Buns",1,ingredPrepMin,ingredPrepMax,ingredCost,NULL,0}
@@ -283,118 +358,3 @@ struct Food{
             ,{"Espresso", 10, drinksMin, drinksMax, drinkCost, espressoIng, 1}
             
         };
-
-string cheeseBurgerIng[6] = {"Buns","BeefPatty","Cheddar","Onion","Lettuce","Tomato"};
-string steak[2] = {"Beef","Herbs"};
-string lamb[3] ={"Lamb","Herbs","Lemon"};
-string pork[2] = {"Pork","Herbs"};
-string chickenCrumbed[2] ={"Chicken","Crumbs"};
-string chicken[2] ={"Chicken","Crumbs"};
-string friedHake[6] ={"Hake","Crumbs","Herbs","Garlic","Butter","Lemon"};
-string grilledHake[5] ={"Hake","Herbs","Garlic","Butter","Lemon"};
-string salmon[5] = {"Salmon","Herbs","Garlic","Butter","Lemon"};
-string sole[5] = {"Sole","Herbs","Garlic","Butter","Lemon"};
-string prawn[5] = {"Pawn","Herbs","Garlic","Butter","Lemon"};
-string grilledCalamari[5] = {"Calamari","Herbs","Garlic","Butter","Lemon"};
-string rawTuna[1] = {"Tuna"};
-string lobster[5] = {"Lobster","Herbs","Garlic","Butter","Lemon"};
-string mussel[5] = {"Mussels","Herbs","Garlic","Butter","Lemon"};
-string oyster[3] = {"Oyster","Herbs","Lemon"};
-string margheritaPizzaIng[2] = {"PizzaBase", "TomatoSauce"};
-string pepperoniPizzaIng[2] = {"PizzaBase", "Pepperoni"};
-string vegetarianPizzaIng[6] = {"PizzaBase", "Mozzarella", "TomatoSauce", "Peppers", "Mushroom", "Olives"};
-string hawaiianPizzaIng[4] = {"PizzaBase", "Mozzarella", "TomatoSauce", "Ham"};
-string bbqChickenPizzaIng[4] = {"PizzaBase", "Mozzarella", "BBQSauce", "Chicken"};
-string mushroomPizzaIng[4] = {"PizzaBase", "TomatoSauce", "Mushroom", "Mozzarella"};
-string veggieSupremePizzaIng[7] = {"PizzaBase", "TomatoSauce", "Mushroom", "Peppers", "Olives", "Onion", "Mozzarella"};
-string meatLoversPizzaIng[5] = {"PizzaBase", "TomatoSauce", "Pepperoni", "Bacon", "Sausages"};
-string supremePizzaIng[7] = {"PizzaBase", "TomatoSauce", "Pepperoni", "Olives", "Peppers", "Mushroom", "Sausages"};
-string whitePizzaIng[3] = {"PizzaBase", "Garlic", "Mozzarella"};
-string buffaloChickenPizzaIng[4] = {"PizzaBase", "TomatoSauce", "Chicken", "Cheddar"};
-string bbqPulledPorkPizzaIng[4] = {"PizzaBase", "BBQSauce", "Pulled Pork", "Onion"};
-string mediterraneanPizzaIng[6] = {"PizzaBase", "TomatoSauce", "Feta", "Olives", "Peppers", "Onion"};
-string frenchFriesIng[2] = {"Potato", "Salt"};
-string onionRingsIng[2] = {"Onion", "Batter"};
-string sweetPotatoFriesIng[2] = {"Squash", "Salt"};
-string zucchiniFriesIng[2] = {"Zucchini", "Batter"};
-string curlyFriesIng[2] = {"Potato", "Salt"};
-string garlicParmesanFriesIng[3] = {"Potato", "Garlic", "Parmesan"};
-string loadedChiliCheeseFriesIng[4] = {"Potato", "Jalapeno", "Cheddar", "Onions"};
-string applePieIng[3] = {"PastryDough", "Apples", "Sugar"};
-string chocolateCroissantIng[3] = {"PastryDough", "Chocolate", "Butter"};
-string danishPastryIng[3] = {"PastryDough", "Cream", "Apples"};
-string eclairIng[4] = {"PastryDough", "Cream", "Chocolate", "Vanilla"};
-string cinnamonRollIng[3] = {"PastryDough", "Cinnamon", "Sugar"};
-string bbqBaconBurgerIng[6] = {"Buns", "BeefPatty", "Bacon", "BBQ Sauce", "Onion", "Lettuce"};
-string mushroomSwissBurgerIng[5] = {"Buns", "BeefPatty", "Mushrooms", "Cheddar", "Onion"};
-string spicyJalapenoBurgerIng[5] = {"Buns", "BeefPatty", "Jalapeno", "Pepper", "Lettuce"};
-string veggieBurgerIng[6] = {"Buns", "BeefPatty", "Cheddar", "Onion", "Lettuce", "Tomato"};
-string doublePattyBurgerIng[7] = {"Buns", "BeefPatty", "BeefPatty", "Cheese", "Onion", "Lettuce", "Tomato"};
-string baconAvocadoBurgerIng[6] = {"Buns", "BeefPatty", "Bacon", "Avocado", "Onion", "Lettuce"};
-string teriyakiPineappleBurgerIng[5] = {"Buns", "BeefPatty", "Seasoning", "Pineapple", "Lettuce"};
-string buffaloChickenBurgerIng[4] = {"Buns", "ChickenPatty", "TomatoSauce", "Parmesan"};
-string blueCheeseBurgerIng[5] = {"Buns", "BeefPatty", "Bacon", "Parmesan", "Lettuce"};
-string spaghettiAglioEOlioIng[2] = {"Spaghetti", "Garlic"};
-string penneArrabbiataIng[3] = {"LasagnaStrips", "Sauce", "Parmesan"};
-string linguineClamsIng[3] = {"LasagnaStrips", "Oyster", "Garlic"};
-string fettuccinePestoIng[2] = {"Spaghetti", "Sauce"};
-string cavatelliBroccoliIng[2] = {"Spaghetti", "Broccoli"};
-string rigatoniTomatoSauceIng[2] = {"Ravioli", "TomatoSauce"};
-string spaghettiPuttanescaIng[5] = {"Spaghetti", "TomatoSauce", "Olives", "Garlic", "Garlic"};
-string penneVodkaIng[4] = {"Ravioli", "Vodka", "Cream", "Parmesan"};
-string linguineAglioEOlioIng[2] = {"Ravioli", "Garlic"};
-string fettuccineAlfredoIng[4] = {"Spaghetti", "Cream", "Parmesan", "Butter"};
-string caesarSaladIng[4] = {"Lettuce", "Crumbs", "Parmesan", "OliveOil"};
-string gardenSaladIng[3] = {"Beans", "Tomato", "Cucumber"};
-string greekSaladIng[5] = {"Lettuce", "Tomato", "Cucumber", "Olives", "Feta"};
-string capreseSaladIng[3] = {"Tomato", "Mozzarella", "Herbs"};
-string cobbSaladIng[6] = {"Beans", "Chicken", "Bacon", "Egg", "Avocado", "Blue Cheese"};
-string spinachStrawberrySaladIng[4] = {"Lettuce", "Strawberry", "Herbs", "Peas"};
-string waldorfSaladIng[5] = {"Beans", "Apples", "Garlic", "Herbs", "Sauce"};
-string asianNoodleSaladIng[5] = {"Noodles", "Cabbage", "Carrots", "Noodles", "Sauce"};
-string mediterraneanSaladIng[5] = {"Beans", "Tomato", "Cucumber", "Onion", "Feta"};
-string antipastoSaladIng[6] = {"Beans", "Salami", "Olives", "Anchovies", "Mozzarella", "Sauce"};
-string cocaColaIng[1] = {"Coke"};
-string pepsiIng[1] = {"Coke"};
-string spriteIng[1] = {"Sprite"};
-string mountainDewIng[1] = {"Fanta"};
-string rootBeerIng[1] = {"Beer"};
-string icedTeaIng[1] = {"RooiBos"};
-string lemonadeIng[3] = {"Lemon","Water","Sugar"};
-string orangeJuiceIng[1] = {"Fanta"};
-string cranberryJuiceIng[1] = {"Sauce"};
-string grapeJuiceIng[1] = {"Wine"};
-string appleJuiceIng[1] = {"Brandy"};
-string limeSodaIng[1] = {"Sprite"};
-string cherrySodaIng[1] = {"Sprite"};
-string fruitPunchIng[1] = {"Wine"};
-string lemonLimeSodaIng[1] = {"Sprite"};
-string mangoSmoothieIng[2] = {"Sauce", "Cream"};
-string strawberryBananaSmoothieIng[2] = {"Strawberries", "Banana"};
-string pinaColadaIng[3] = {"Pineapple", "Milk", "Whiskey"};
-string mojitoIng[3] = {"Lime", "Mint", "Whiskey"};
-string espressoIng[1] = {"CoffeeBeans"};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
