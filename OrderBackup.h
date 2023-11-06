@@ -1,6 +1,6 @@
 #pragma once
 using namespace std;
-#include "Customer.h"
+class Customer;
 #include "Dish.h"
 
 class OrderBackup {

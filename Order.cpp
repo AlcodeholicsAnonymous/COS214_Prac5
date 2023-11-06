@@ -7,7 +7,7 @@ Order::Order() {
 }
 
 Order::Order(Customer* c) {
-    meals = nullptr;
+    head = nullptr;
     customer = c;
     state = "Ordered";
     //next = nullptr;
@@ -36,19 +36,15 @@ void Order::addMeal(string mealName) {
     }else{
         meal = new Dish(mealName);
     }
-        
-    Meal* mealPtr = meals;
-    while (mealPtr->getNext() != nullptr) {
-        mealPtr = mealPtr->getNext();
-    }
-    mealPtr->setNext(meal);
+    meal->setNext(head);
+    head = meal;
 }
 
 bool Order::removeMeal(string mealName) {
-    if (meals == nullptr) {
+    if (head == nullptr) {
         return false;
     }
-    Meal* mealPtr = meals;
+    Meal* mealPtr = head;
     while (mealPtr->getNext() != nullptr && mealPtr->getNext()->getName() != mealName) {
         mealPtr = mealPtr->getNext();
     }
@@ -77,15 +73,15 @@ void Order::setState(string s) {
 }
 
 Meal* Order::getMeals() {
-    return meals;
+    return head;
 }
 
 Meal* Order::getMeal() {
-    return meals->getMeal();
+    return head->getMeal();
 }
 
 Meal* Order::getNextMeal() {
-    return meals->getNext()->getMeal();
+    return head->getNext()->getMeal();
 }
 
 Customer* Order::getCustomer() {
@@ -97,17 +93,17 @@ void Order::setCustomer(Customer* c) {
 }
 OrderBackup* Order::makeBackup() {
     int price = 0;
-    //iterate through meals and calc price
-    Meal* mealPtr = meals;
+    //iterate through head and calc price
+    Meal* mealPtr = head;
     while (mealPtr != nullptr) {
         price += mealPtr->getCost();
         mealPtr = mealPtr->getNext();
     }
-    return new OrderBackup(meals, state, customer, price);
+    return new OrderBackup(head, state, customer, price);
 }
 
 void Order::restore(OrderBackup* ob) {
-    meals = ob->getMeals();
+    head = ob->getMeals();
     state = ob->getState();
     customer = ob->getCustomer();
     //next = nullptr;
@@ -115,12 +111,19 @@ void Order::restore(OrderBackup* ob) {
 
 string* Order::getDishList() {
 
-    string meals[206];
+    string* head = new string[206];
     
     for(int i = 0;i < 206;i++){
-        meals[i] = foodBank[i].name;
+        head[i] = foodBank[i].name;
     }
 
-    return meals;
+    return head;
 
+}
+void Order::printOrder(){
+    Meal* mealPtr = head;
+    while (mealPtr != nullptr) {
+        cout << mealPtr->getName() << endl;
+        mealPtr = mealPtr->getNext();
+    }
 }

@@ -8,7 +8,7 @@ class Database {
         void addTab(Tab* t);
 	public: 
         Database();
-        void addToTab(Order* o);
+        void addToTab(Order* o, int custId);
         bool payTab(int custId);
         ~Database();
 };

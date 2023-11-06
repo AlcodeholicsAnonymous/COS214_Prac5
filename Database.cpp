@@ -24,13 +24,13 @@ void Database::addTab(Tab* t) {
     tabPtr->setNext(t);     //add tab at end of db
 }
 
-void Database::addToTab(Order* o) {
+void Database::addToTab(Order* o, int custId) {
     //Create memento of order
     OrderBackup* ob = o->makeBackup();
 
     //if db empty -> create new tab, add order to it and add tab to db
     if (db == nullptr) {
-        Tab* newTab = new Tab(ob->getCustomer()->getId());
+        Tab* newTab = new Tab(custId);
         newTab->addToTab(ob);
         this->addTab(newTab);
         return;
@@ -38,18 +38,18 @@ void Database::addToTab(Order* o) {
 
     //db not empty -> search for customer's tab
     Tab* tabPtr = db;
-    while (tabPtr->getNext() != nullptr && tabPtr->getCustId() != ob->getCustomer()->getId()) {
+    while (tabPtr->getNext() != nullptr && tabPtr->getCustId() != custId) {
         tabPtr = tabPtr->getNext();
     }
 
     //Has found customer tab
-    if (tabPtr->getCustId() == ob->getCustomer()->getId()) {
+    if (tabPtr->getCustId() == custId) {
         tabPtr->addToTab(ob);
         return;
     }
 
     //Has not found custormer's tab -> create new tab, add order to it and add tab to db
-    Tab* newTab = new Tab(ob->getCustomer()->getId());
+    Tab* newTab = new Tab(custId);
     newTab->addToTab(ob);
     this->addTab(newTab);
     return;

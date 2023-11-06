@@ -1,5 +1,5 @@
 #pragma once
-#include "Table.h"
+class Table;
 
 class Booking{
 protected:

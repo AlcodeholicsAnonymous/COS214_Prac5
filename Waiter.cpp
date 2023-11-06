@@ -12,7 +12,7 @@ int Waiter::getID() {
 }
 
 void Waiter::takeOrder(Order* o) {
-    headChef->handleRequest(o);//take to head chef
+    successor->handleRequest(o);//Error happening here seg fault.
 }
 
 void Waiter::deliverOrder(Order* o) {
@@ -36,17 +36,17 @@ void Waiter::notify(bool method, Order* o) {
 }
 
 void Waiter::addToTab(Order* o) {
-    database->addToTab(o);
+    database->addToTab(o, o->getCustomer()->getId());
 }
 
 void Waiter::payTab(Order* o) {
-    database->addToTab(o);
+    database->addToTab(o, o->getCustomer()->getId());
     database->payTab(o->getCustomer()->getId());
 }
 
-void Waiter::createOrder() 
+void Waiter::createOrder()
 {
     Order* o = new Order();
     
-    // this->takeOrder(o);
+    this->takeOrder(o);
 }

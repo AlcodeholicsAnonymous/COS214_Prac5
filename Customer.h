@@ -2,11 +2,11 @@
 
 // #include "Person.h"
 #include "Booking.h"
-// #include "Table.h"
+#include "Table.h"
 // #include "Order.h"
 // #include "Tab.h"
 
-// #include "Waiter.h"
+#include "Waiter.h"
 
 // Included for now, lets see later
 
@@ -17,8 +17,6 @@
 #include <iostream>
 
 using namespace std;
-
-class Waiter;
 
 class Customer:public Person{
 private:

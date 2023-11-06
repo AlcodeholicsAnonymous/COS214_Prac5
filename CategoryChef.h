@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "Chef.h"
+#include "Meal.h"
 
 using namespace std;
 

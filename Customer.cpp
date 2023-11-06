@@ -11,16 +11,20 @@ Customer::Customer(Booking *booking, int size){
 }
 
 void Customer::createOrder(){
-	// srand(static_cast<unsigned int>(time(nullptr)));
+    srand(static_cast<unsigned int>(time(nullptr)));
 
-	// int orderCount = (rand() % 10) + 1;
-	
-	// Order* o = new Order();
-	// o->setCustomer(this);
-	// Order* o = new Order(this);
-	//table.waiter.takeOrder(o)
-	
-	table->getWaiter()->createOrder();
+    int orderCount = (rand() % 10) + 1;
+
+    Order* o = new Order(this);
+
+    int mealChoice;
+    string* mealList = o->getDishList();
+    for(int i=0;i<orderCount;i++){
+        mealChoice = (rand() % 205);
+        o->addMeal(mealList[mealChoice]);
+    }
+    o->printOrder();
+    table->getWaiter()->takeOrder(o);
 }
 
 void Customer::eat(Order* o){

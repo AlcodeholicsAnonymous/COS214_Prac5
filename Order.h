@@ -1,12 +1,12 @@
 #pragma once
 #include <string>
-#include "Dish.h"
+#include <iostream>
 #include "OrderBackup.h"
 using namespace std;
 
 class Order {
 private:
-	Meal* meals;		//head
+	Meal* head;		//head
 	string state;
 	Customer* customer;
 	// Order* next;
@@ -34,6 +34,7 @@ public:
 	void restore(OrderBackup* ob);
 	int getCat(string meal);
 	string* getDishList();
+	void printOrder();
 };
 
 //Linked list of meals

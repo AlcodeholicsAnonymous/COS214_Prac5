@@ -1,6 +1,5 @@
 #include "HeadChef.h"
 
-
 HeadChef::HeadChef(CategoryChef* chefs) {
     this->chefs = chefs;
     cout << "HeadChef created, They are in charge of chefs:" << endl;

@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-#include "Order.h"
+class Order;
 #include "Employee.h"
 
 using namespace std;
