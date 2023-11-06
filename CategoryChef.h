@@ -6,26 +6,29 @@
 
 using namespace std;
 
-class CategoryChef {
+class CategoryChef: public Chef {
 private:
     int category;
     Meal meal;
+    CategoryChef* nextChef;
+    
 public:
+    string categories[9] = {"meat", "fish", "pizza", "fry", "burger", "pastry", "pasta", "salads", "drinks"};
+    CategoryChef();
     CategoryChef(int cat);
-    void prepair(Meal meal);
+    int getCategory() {
+        return this->category;
+    }
+    void setCategory(int cat) {
+        this->category = cat;
+    }
+    void prepare(Meal meal);
     Meal getMeal();
+    void handleRequest(Meal meal);
+    void setNextChef(CategoryChef* nextChef) {
+        this->nextChef = nextChef;
+    }
+    CategoryChef* getNextChef() {
+        return this->nextChef;
+    }
 };
-
-CategoryChef::CategoryChef(int cat) {
-    this->category = cat;
-}
-
-/// @brief Order has been delegated to this chef. The chef prepares the meal and sets the meal to the finished meal
-/// @param meal 
-void CategoryChef::prepair(Meal meal) {
-    Meal _finishedMeal = Meal();
-}
-
-Meal CategoryChef::getMeal() {
-    return this->meal;
-}
