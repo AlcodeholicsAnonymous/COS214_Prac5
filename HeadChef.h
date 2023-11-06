@@ -12,7 +12,7 @@ class HeadChef: public Chef {
 private:
     CategoryChef* chefs;
 public:
-
+    string type = "HeadChef";
     HeadChef(CategoryChef* chefs);
     void startOrder(Order* o);
     void delegateOrder(Order* o);

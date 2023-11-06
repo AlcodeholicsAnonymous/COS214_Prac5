@@ -77,6 +77,7 @@ void Dish::removeNext(){
 }
 
 Meal* Dish::getNext(){
+    // cout << "Dish's getNext() called" << endl;
     return this->next;
 }
 

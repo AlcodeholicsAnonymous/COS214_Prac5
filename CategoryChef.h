@@ -25,7 +25,7 @@ public:
     }
     void prepare(Meal meal);
     Meal getMeal();
-    void handleRequest(Meal meal);
+    void handleRequest(Order* o);
     void setNextChef(CategoryChef* nextChef) {
         this->nextChef = nextChef;
     }

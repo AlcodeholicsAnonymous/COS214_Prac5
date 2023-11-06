@@ -9,7 +9,7 @@ private:
 	Meal* head;		//head
 	string state;
 	Customer* customer;
-	// Order* next;
+	// Meal* next;
 public:
 	Order();
 	Order(Customer* c);				//Construct empty order & assign customer

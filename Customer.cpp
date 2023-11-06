@@ -6,8 +6,8 @@ Customer::Customer(Booking *booking, int size){
 	this->booking = booking;
 	booking->getBooked() ? this->table = booking->getTable() : this->table;
 	cusId = id++;
-	string buddy = booking->getBooked() ? "have a booking. " : "do not have a booking. ";
-	cout << "Customer " << cusId << "has entered the restaurant! They " << buddy << endl;
+	string buddy = booking->getBooked() ? " have a booking. " : " do not have a booking. ";
+	cout << "Customer " << cusId << " has entered the restaurant! They " << buddy << endl;
 }
 
 void Customer::createOrder(){
@@ -19,7 +19,7 @@ void Customer::createOrder(){
 
     int mealChoice;
     string* mealList = o->getDishList();
-    for(int i=0;i<orderCount;i++){
+    for(int i = 0; i < orderCount; i++){
         mealChoice = (rand() % 205);
         o->addMeal(mealList[mealChoice]);
     }

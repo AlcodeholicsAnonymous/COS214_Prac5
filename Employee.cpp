@@ -13,8 +13,8 @@ Employee* Employee::getSuccessor() {
     return successor;
 }
 
-void Employee::setSuccessor(Employee *successor) {
-    this->successor = successor;
+void Employee::setSuccessor(Employee *_successor) {
+    this->successor = _successor;
 }
 
 void Employee::handleRequest(Order *o)

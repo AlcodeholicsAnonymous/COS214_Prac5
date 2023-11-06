@@ -3,6 +3,7 @@ using namespace std;
 #include "FoodBank.h"
 #include <array>
 #include <string>
+#include <iostream>
 
 class Meal {
 private:

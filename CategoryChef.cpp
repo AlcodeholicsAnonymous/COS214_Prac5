@@ -20,7 +20,7 @@ Meal CategoryChef::getMeal() {
     return this->meal;
 }
 
-void CategoryChef::handleRequest(Meal meal) {
+void CategoryChef::handleRequest(Order* o) {
     cout << "CategoryChef handling request" << endl;
     this->prepare(meal);
 }

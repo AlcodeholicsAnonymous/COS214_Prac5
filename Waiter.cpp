@@ -12,7 +12,7 @@ int Waiter::getID() {
 }
 
 void Waiter::takeOrder(Order* o) {
-    successor->handleRequest(o);//Error happening here seg fault.
+    successor->handleRequest(o);        //Error happening here seg fault.
 }
 
 void Waiter::deliverOrder(Order* o) {
@@ -44,9 +44,24 @@ void Waiter::payTab(Order* o) {
     database->payTab(o->getCustomer()->getId());
 }
 
-void Waiter::createOrder()
+void Waiter::createOrder(Customer *_c)
 {
-    Order* o = new Order();
+    srand(static_cast<unsigned int>(time(nullptr)));
+
+    int orderCount = (rand() % 10) + 1;
+    cout << "Order count: " << orderCount << endl;
+
+    Order* o = new Order(_c);
+
+    int mealChoice;
+    string* mealList = o->getDishList();
+    for(int i = 0; i < orderCount; i++){
+        mealChoice = (rand() % 205);
+        o->addMeal(mealList[mealChoice]);
+        cout << mealList[mealChoice] << endl;
+    }
+    cout << endl;
+    // o->printOrder();
     
     this->takeOrder(o);
 }

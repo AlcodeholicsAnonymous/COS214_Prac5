@@ -11,7 +11,8 @@ void Meal::setNext(Meal *meal)
 
 Meal *Meal::getNext()
 {
-    return nullptr;
+    cout << "Meal's getNext() called" << endl;
+    return this->next;
 }
 
 Meal* Meal::getMeal() {

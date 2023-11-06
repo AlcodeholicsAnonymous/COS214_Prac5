@@ -11,8 +11,8 @@ protected:
     int id;
     Person();
     ~Person();
+public:
     Waiter* getMediator();
     void setMediator(Waiter* w);
-public:
-    
+    int getID() { return id; }
 };

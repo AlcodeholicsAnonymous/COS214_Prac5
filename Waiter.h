@@ -19,7 +19,8 @@ public:
     void notify(bool method, Order* o);
     void addToTab(Order* o);
     void payTab(Order* o);
-    void createOrder();
+    void createOrder(Customer* c);
+    void handleRequest(Order* o) {};
 
 	int getID();
 };
