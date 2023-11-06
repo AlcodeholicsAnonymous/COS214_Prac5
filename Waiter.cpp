@@ -15,7 +15,7 @@ int Waiter::getID() {
 }
 
 void Waiter::takeOrder(Order* o) {
-    successor->handleRequest(o);        
+    successor->handleRequest(o); 
 }
 
 void Waiter::deliverOrder(Order* o) {
@@ -43,10 +43,7 @@ void Waiter::notify(bool method, Order* o) {
 
 void Waiter::addToTab(Order* o) {
     cout << "Adding to tab\n";
-    cout << "Customer ID: " << o->getCustomer()->getID() << endl;
-    // database->addToTab(o, o->getCustomer()->getID());
-    // database->randomPrintStatement();
-    
+    database->addToTab(o, o->getCustomer()->getID());
 }
 
 void Waiter::payTab(Order* o) {
@@ -54,39 +51,42 @@ void Waiter::payTab(Order* o) {
     database->payTab(o->getCustomer()->getId());
 }
 
-void Waiter::createOrder(Customer *_c)
-{
+void Waiter::createOrder(Customer *_c){
     Order* o = new Order(_c);
     string* mealList = o->getDishList();
-    o->addMeal(mealList[0]);
-    o->addMeal(mealList[0]);
-    o->addMeal(mealList[24]);
-    o->addMeal(mealList[24]);
-    o->addMeal(mealList[29]);
-    o->addMeal(mealList[29]);
+    // o->addMeal(mealList[0]);
+    // o->addMeal(mealList[0]);
+    // o->addMeal(mealList[24]);
+    // o->addMeal(mealList[24]);
+    // o->addMeal(mealList[29]);
+    // o->addMeal(mealList[29]);
 
-    // bool flag = true;
-    // int choice, quantity;
-    // while (flag) {
-    //     cout << "Please choose a food or drink item item or type -1 to finish order: \n";
-    //     cin >> choice;
+    bool flag = true;
+    int choice, quantity;
+    while (flag) {
+        cout << "Please choose a food or drink item item or type -1 to finish order: \n";
+        cin >> choice;
 
-    //     if (choice == -1) {
-    //         flag = false;
-    //         break;
-    //     }
+        if (choice == -1) {
+            flag = false;
+            break;
+        }
 
-    //     cout << "Please enter the quantity: \n";
-    //     cin >> quantity;
+        cout << "Please enter the quantity: \n";
+        cin >> quantity;
 
         
 
-    //     for (int i = 0; i < quantity; i++)
-    //     {
-    //         o->addMeal(mealList[choice]);
-    //     }
-    // }
+        for (int i = 0; i < quantity; i++)
+        {
+            o->addMeal(mealList[choice]);
+        }
+    }
 
-    // o->printOrder();
+    o->printOrder();
+    this->takeOrder(o);
+}
+void Waiter::handleRequest(Order* o) {
+    cout << "Waiter " << this->getID() << " has taken the order\n";
     this->takeOrder(o);
 }

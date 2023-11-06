@@ -4,6 +4,7 @@
 #include "CategoryChef.h"
 #include "Chef.h"
 #include "Waiter.h"
+#include "Table.h"
 
 using namespace std;
 
@@ -18,47 +19,46 @@ int main() {
     Database* database = new Database();
     Waiter* waiter = new Waiter(database);
     cout << "Waiter ID: " << waiter->getID() << endl;
-    Booking* booking = new Booking();
+    Table* table = new Table(5, true, 1);
+    table->setWaiter(waiter);
+    Booking* booking = new Booking(table);
     Customer* customer = new Customer(booking, 2);
     waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
     string* menu = order->getDishList();
 
-    waiter->createOrder(customer);
-    // waiter->database->randomPrintStatement();
+    while (true){
+        cout << "Please pick an option: \n";
+        cout << "0. Exit\n";
+        cout << "1. Display menu\n";
+        cout << "2. Start order\n";
 
-    // while (true){
-    //     cout << "Please pick an option: \n";
-    //     cout << "0. Exit\n";
-    //     cout << "1. Display menu\n";
-    //     cout << "2. Start order\n";
+        int option;
+        cin >> option;
 
-    //     int option;
-    //     cin >> option;
-
-    //     if (menu == nullptr)
-    //     {
-    //         cout << "Menu is empty\n";
-    //     }
+        if (menu == nullptr)
+        {
+            cout << "Menu is empty\n";
+        }
         
-    //     switch (option)
-    //     {
-    //     case 0:
-    //         cout << "Exiting...\n";
-    //         return 0;
-    //     case 1:
-    //         cout << "Menu: \n";
-    //         displayMenu();
-    //         break;
-    //     case 2:
-    //         waiter->createOrder(customer);
-    //         break;
-    //     default:
-    //         cout << "Invalid option\n";
-    //         break;
-    //     }
+        switch (option)
+        {
+        case 0:
+            cout << "Exiting...\n";
+            return 0;
+        case 1:
+            cout << "Menu: \n";
+            displayMenu();
+            break;
+        case 2:
+            waiter->createOrder(customer);
+            break;
+        default:
+            cout << "Invalid option\n";
+            break;
+        }
 
-    // }
+    }
     
     return 0;
 }

@@ -63,7 +63,7 @@ void Table::setWaiter(Waiter * waiter)
 
 Waiter * Table::getWaiter()
 {
-return nullptr;
+	return this->waiter;
 }
 
 void Table::setNext(Table * next)
@@ -73,7 +73,7 @@ void Table::setNext(Table * next)
 
 Table * Table::getNext()
 {
-return nullptr;
+	return this->next;
 }
 
 void Table::setPrevious(Table * previous)
@@ -83,5 +83,5 @@ void Table::setPrevious(Table * previous)
 
 Table * Table::getPrevious()
 {
-return nullptr;
+	return this->previous;
 }

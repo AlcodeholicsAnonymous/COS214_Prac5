@@ -2,7 +2,9 @@
 
 using namespace std;
 
-Booking::Booking(){
+Booking::Booking(Table *table){
+    this->table = table;
+    isBooked = table->getAvailable();
 }
 
 Table *Booking::getTable(){

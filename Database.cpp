@@ -78,8 +78,3 @@ bool Database::payTab(int custId) {
     }
     return false;           //Tab was not found (again technically this can't happen)
 }
-
-void Database::randomPrintStatement()
-{
-    cout << "Hello There!";
-}

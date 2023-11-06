@@ -28,7 +28,6 @@ private:
 
 public:
 	Customer(Booking *booking, int size);
-	void createOrder();
 	void eat(Order* o);
 	int getId();
 	~Customer();
