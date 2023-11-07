@@ -25,10 +25,10 @@ void CategoryChef::handleRequest(Meal* meal) {
     this->prepare(meal);
 }
 
-void CategoryChef::notify(Table *)
-{
-}
+// void CategoryChef::notify(Table *)
+// {
+// }
 
-void CategoryChef::notify(Order*)
-{
-}
+// void CategoryChef::notify(Order*)
+// {
+// }

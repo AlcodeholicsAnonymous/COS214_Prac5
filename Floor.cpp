@@ -43,22 +43,21 @@ Table* Floor::remove(Table* table) {
 }
 
 
-bool Floor::combine(Table* table1, Table* table2) {
+Table* Floor::combine(Table* table1, Table* table2) {
     if (table1->getAvailable() && table2->getAvailable()) {
         Table* newTable = new Table(table1->getSize() + table2->getSize() - 2, true, table1->getNumber(), true, table2);
         if (this->remove(table1) == nullptr) {
-            return false;
-        } else if (table1->getAvailable()) {
+            return nullptr;
         }
 
         if (this->remove(table2) == nullptr) {
-            return false;
-        } else if (table2->getAvailable()) {
+            return nullptr;
         }
         this->addTable(newTable);
-        return true;
+        updateAvailability();
+        return newTable;
     }
-    return false;
+    return nullptr;
 }
 
 bool Floor::split(Table* table) {
@@ -71,7 +70,7 @@ bool Floor::split(Table* table) {
         }
         this->addTable(newTable1);
         this->addTable(newTable2);
-
+        updateAvailability();
         return true;
     }
     return false;
@@ -109,31 +108,36 @@ void Floor::updateAvailability() {
     this->availableTables = counter;
 }
 
-Table* Floor::combineTablesNumPeople(int num) {
+Table* Floor::combineTablesNumPeople(int numPeople) {
+    if (this->getAvailableSeats() < numPeople) {
+        return nullptr;
+    }
     Table* curr = this->head;
-    int numTables = 0;
-    Table** tables = new Table*[num];
-    int maxSize = 0;
+    Table* newTable;
+    int size = 0;
     while (curr != nullptr) {
-        if (curr->getAvailable() && maxSize < num) {
-            tables[numTables] = curr;
-            numTables++;
-            maxSize += curr->getSize()-2;
+        if (curr->getAvailable() && size < numPeople) {
+            size += curr->getSize();
+            if (newTable == nullptr) {
+                newTable = curr;
+            } else {
+                newTable = this->combine(newTable, curr);
+            }          
         }
         curr = curr->getNext();
     }
-    if (maxSize < num || numTables == 0) {
+    if (size < numPeople) {
         return nullptr;
     }
-    Table* newTable = tables[0];
-    for (int i = 1; i < numTables; i++)
-    {
-        newTable = this->combine(newTable, tables[i]);
-    }
+    updateAvailability();
+
     return newTable;
 }
 
 Table* Floor::getAvailableForNumPeople(int num) {
+    if (this->getAvailableSeats() < num) {
+        return nullptr;
+    }
     Table* curr = this->head;
     while (curr != nullptr) {
         if (curr->getAvailable() && curr->getSize() >= num) {
@@ -146,4 +150,21 @@ Table* Floor::getAvailableForNumPeople(int num) {
 
 Floor::~Floor() {
 
+}
+
+int Floor::getAvailableSeats() {
+    int counter = 0;
+    Table* curr = this->head;
+    while (curr != nullptr) {
+        if (curr->getAvailable()) {
+            counter += curr->getSize();
+        }
+        curr = curr->getNext();
+    }
+
+    return counter;
+}
+
+int Floor::getAvailableTables() {
+    return this->availableTables;
 }

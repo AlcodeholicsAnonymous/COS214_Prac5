@@ -32,6 +32,6 @@ public:
     CategoryChef* getNextChef() {
         return this->nextChef;
     }
-    void notify(Table*);
-    void notify(Order *);
+    // void notify(Table*);
+    // void notify(Order *);
 };

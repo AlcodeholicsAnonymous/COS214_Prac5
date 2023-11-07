@@ -3,7 +3,6 @@ CXX = g++
 
 # Define the flags to use when compiling .cpp files
 CXXFLAGS = -Wall -Wextra -pedantic -std=c++11
-
 # Define the command to use when compiling .cpp files
 COMPILE = $(CXX) $(CXXFLAGS) -c
 

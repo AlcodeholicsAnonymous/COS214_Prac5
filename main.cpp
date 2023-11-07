@@ -38,12 +38,17 @@ int main() {
     waiter->setSuccessor(headChef);
     // waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
+    cout << "=======================" << endl;
+    cout << "Available tables: " << theFloor->getAvailableTables() << endl;
+    cout << "Available seats: " << theFloor->getAvailableSeats() << endl;
+    cout << "=======================" << endl;
     while (true)
     {
         cout << "Please pick an option: \n";
         cout << RED << "0. Exit\n" << WHITE;
         cout << "1. Make a booking\n";
         cout << "2. Try enter restaurant\n";
+        
 
         int option;
         cin >> option;
