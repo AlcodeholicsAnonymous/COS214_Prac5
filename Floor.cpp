@@ -111,13 +111,13 @@ void Floor::updateAvailability() {
 
 Table* Floor::combineNumTables(int num) {
     Table* curr = this->head;
+    int numTables = 0;
     while (curr != nullptr) {
-        if (curr->getAvailable() && curr->getSize() == num) {
-            return curr;
+        if (curr->getAvailable()) {
+            numTables++;
         }
         curr = curr->getNext();
     }
-    return nullptr;
 }
 
 Floor::~Floor() {
