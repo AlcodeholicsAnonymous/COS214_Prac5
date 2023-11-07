@@ -28,6 +28,11 @@ int Tab::getTotal() {
 	return total;
 }
 
+void Tab::setTotal(int t)
+{
+	total = t;
+}
+
 Tab* Tab::getNext() {
 	return next;
 }

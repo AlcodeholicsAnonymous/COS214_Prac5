@@ -12,6 +12,7 @@ class Tab {
 		Tab(int cId);
 		void addToTab(OrderBackup* ob);
 		int getTotal();
+		void setTotal(int t);
 		Tab* getNext();
 		void setNext(Tab* t);
 		int getCustId();

@@ -80,7 +80,9 @@ bool Database::payTab(int custId) {
         int payment;
         cin >> payment;
         while (payment < tabPtr->getTotal()) {
-            cout << RED << "Payment amount must be greater than or equal to tab cost" << WHITE << endl;
+            // cout << RED << "Payment amount must be greater than or equal to tab cost" << WHITE << endl;
+            tabPtr->setTotal(tabPtr->getTotal() - payment);
+            cout << "Remaining tab cost: " << tabPtr->getTotal() << endl;
             cout << "Please enter payment amount: ";
             cin >> payment;
         }
