@@ -1,25 +1,81 @@
 #include "MaitreD.h"
 
-Table* seat(Customer* c) {
-
+MaitreD::MaitreD(Floor* f) {
+    this->floor = f;
+}
+MaitreD::~MaitreD() {
+    
 }
 
-void addBooking(Booking* b) {
-
-}	
-
-bool removeBooking(Booking* b) {
-
+Table* MaitreD::seat(Customer* c) {
+    if (floor->getFirstAvailableTable() == nullptr) {
+        return nullptr;
+    } else {
+        Table* t = floor->getFirstAvailableTable();
+        c->setTable(t);
+        return t;
+    }
+    return nullptr;
+}
+void MaitreD::addBooking(Customer* c) {
+    this->bookings.push(c);
+}
+void MaitreD::addQueue(Customer* c) {
+    this->queue.push(c);
+}
+bool MaitreD::checkAvailability() {
+    if (floor->getFirstAvailableTable() != nullptr)
+    {
+        notify();
+        return true;
+    }
+    return false;
+}
+bool MaitreD::removeBooking(Customer* c) {
+    std::queue<Customer*> tempQueue;
+    while (!bookings.empty()) {
+        if (bookings.front() == c) {
+            bookings.pop();
+            return true;
+        } else {
+            tempQueue.push(bookings.front());
+            bookings.pop();
+        }
+    }
+    bookings = tempQueue;
+    return false;
 }
 
-bool combine(Table t1, Table t2) {
-
+bool MaitreD::combine(Table* t1, Table* t2) {
+    return floor->combine(t1, t2);
 }
-
-bool split(Table t){
-
+bool MaitreD::split(Table* t) {
+    return floor->split(t);
 }
-
-void assignWaiter(Waiter* w, Table* t) {
-	
+void MaitreD::assignWaiter(Waiter* w, Table* t) {
+    t->setWaiter(w);
+}
+void MaitreD::notify() {
+    Table* openTable = floor->getFirstAvailableTable();
+    if (!bookings.empty()) {
+        Customer* c = bookings.front();
+        if (openTable != nullptr) {
+            if (c->getSize() <= openTable->getSize()) {
+                c->setTable(openTable);
+                bookings.pop();
+                c->enterRestaurant();
+            }
+        }
+    } else if (!queue.empty()) {
+        Customer* c = queue.front();
+        if (openTable != nullptr) {
+            if (c->getSize() <= openTable->getSize()) {
+                c->setTable(openTable);
+                queue.pop();
+                c->enterRestaurant();
+            }
+        }
+    } else {
+        std::cout << "No customers waiting" << std::endl;
+    }
 }

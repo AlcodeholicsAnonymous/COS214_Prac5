@@ -1,32 +1,29 @@
 #pragma once
 
-#include "Employee.h"
-#include "Customer.h"
-#include "Booking.h"
+class Employee;
+class Customer;
 #include "Table.h"
-#include "Waiter.h"
+#include "Floor.h"
+#include <vector>
+#include <queue>
 
 class MaitreD : public Employee
 {
 	private:
-		Customer* queue;
-		Booking* bookings;
-		Table* tables;
-		Waiter* waiters;
+		std::queue<Customer*> bookings;
+		std::queue<Customer*> queue;
+		std::vector<Waiter*> waiters;
+		Floor* floor;
 	public:
-		MaitreD(int employeeNr);
+		MaitreD(Floor* f);
 		~MaitreD();
 		Table* seat(Customer* c);
-		void addBooking(Booking* b);
-		bool removeBooking(Booking* b);
-		bool combine(Table t1, Table t2);
-		bool split(Table t);
+		void addBooking(Customer* c);
+		void addQueue(Customer* c);
+		bool checkAvailability();
+		bool removeBooking(Customer* c);
+		bool combine(Table* t1, Table* t2);
+		bool split(Table* t);
 		void assignWaiter(Waiter* w, Table* t);
+		void notify();
 };
-
-MaitreD::MaitreD(int employeeNr) : Employee(employeeNr){
-}
-
-MaitreD::~MaitreD()
-{
-}
