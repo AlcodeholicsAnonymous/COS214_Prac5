@@ -18,8 +18,8 @@ public:
     Meal* getNext();
     void removeNext();
     Meal* getMeal();
-    void addIngredient(Meal* m);
-    void removeIngredient(Meal* m);
+    // void addIngredient(Meal* m);
+    // void removeIngredient(Meal* m);
     Meal* getChild(int child);
     string getName();
     int getCategory();

@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Employee.h"
-
+#include "Waiter.h"
 class Table;
 
 /*! \class Floor
@@ -12,14 +11,13 @@ class Table;
 class Floor {
    private:
     Table* head; ///< A pointer to the first table in the list of tables.
-    Employee MaitreD; ///< The MaitreD of the floor.
-
+    int availableTables = 0; ///< The number of available tables.
    public:
     /*! \fn add
     *   \brief Adds a table to the list of tables.
     *   \param table A pointer to the table to be added.
     */
-    void add(Table* table);
+    void addTable(Table* table);
     /*! \fn remove
     *   \brief Removes a table from the list of tables.
     *   \param table A pointer to the table to be removed.
@@ -46,14 +44,25 @@ class Floor {
     void detach(Table* table);
     /*! \fn attach
     *   \brief Assigns a waiter to a table.
-    *   \param employee A pointer to the employee to be attached to.
+    *   \param Waiter A pointer to the waiter to be attached to.
     *   \param table A pointer to the table to be attached.
     */
-    void attach(Employee* employee, Table* table);
-    /*! \fn Floor
-    *   \brief A constructor.
+    void attach(Waiter* waiter, Table* table);
+    /*! \fn getFirstAvailableTable
+    *   \brief Returns a pointer to the first available table.
+    *   \return A pointer to the first available table.
     */
-    Floor();
+    Table* getFirstAvailableTable();
+    /*! \fn combineNumTables
+    *   \brief Combines a number of tables.
+    *   \param numTables The number of tables to be combined.
+    *   \return A pointer to the combined table.
+    */
+    Table* combineNumTables(int numTables);
+    /*! \fn updateAvailability
+    *   \brief Updates the number of available tables.
+    */
+    void updateAvailability();
     /*! \fn ~Floor
     *   \brief A destructor.
     */

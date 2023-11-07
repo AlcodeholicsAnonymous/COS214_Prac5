@@ -4,13 +4,13 @@ class Customer;
 #include "Dish.h"
 
 class OrderBackup {
-	private:
+private:
         Meal* meals;		//head
         string state;
         Customer* customer;
         OrderBackup* next;
         int price;
-	public:
+public:
         OrderBackup(Meal* meals, string state, Customer* customer, int price);
         ~OrderBackup();
 

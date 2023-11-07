@@ -1,7 +1,6 @@
 #pragma once
 
-#include "Floor.h"
-
+class Floor;
 class Waiter;
 //generate doxygen comments
 
@@ -19,6 +18,7 @@ class Table {
     int size; /*!< The max amount of people that can be seated at a table */
     Waiter* waiter; /*!< The waiter that has been assigned to the table */
 
+    Floor* floor; /*!< The floor that the table is on */
     Table *next; ///< Pointer to the next table in the list
     Table *previous; ///< Pointer to the previous table in the list
     Table* combinedTable; /*!< Pointer to the table that is combined with this table */

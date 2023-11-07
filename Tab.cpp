@@ -11,7 +11,8 @@ void Tab::addToTab(OrderBackup* ob) {
 	//if Tab empty -> add new order to head of orders
 	if (orders == nullptr) {
         orders = ob;
-        return;
+		total += ob->getPrice();	//Add price of new order to total
+		return;
     }
 
 	//Tab not empty -> go to last order
@@ -20,11 +21,10 @@ void Tab::addToTab(OrderBackup* ob) {
         orderPtr = orderPtr->getNext();
     }
     orderPtr->setNext(ob);		//Add new order to tail of orders in tab
-	total += ob->getPrice();
+	total += ob->getPrice();	//Add price of new order to total
 }
 
 int Tab::getTotal() {
-	//iterate through orders to iterate through meals & calc tot
 	return total;
 }
 

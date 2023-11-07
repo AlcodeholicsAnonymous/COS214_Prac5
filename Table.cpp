@@ -1,11 +1,8 @@
 #include "Table.h"
-#include "Waiter.h"
 #include "Floor.h"
 
 void Table::setAvailable(bool available) {
     this->available = available;
-    this->waiter->notify(this);
-
 }
 
 bool Table::getAvailable() {

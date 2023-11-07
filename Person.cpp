@@ -2,7 +2,7 @@
 
 int Person::maxId = 0;
 Person::Person(){
-    id = ++maxId;
+    id = maxId++;
 }
 
 Person::~Person(){

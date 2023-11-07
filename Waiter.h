@@ -1,5 +1,6 @@
 #pragma once
 #include "HeadChef.h"
+#include <iostream>
 // #include "Order.h"
 // #include "Table.h"
 #include "Database.h"
@@ -15,7 +16,7 @@ public:
     void takeOrder(Order* o);
     void deliverOrder(Order* o);
     void notify(Order* o);
-    void notify(Table* t);
+    void notifyTableAvailable();
     void notify(bool method, Order* o);
     void addToTab(Order* o);
     void payTab(Order* o);

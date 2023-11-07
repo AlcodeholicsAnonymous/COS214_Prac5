@@ -15,6 +15,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <iostream>
+#include <stdio.h>
 
 using namespace std;
 
@@ -23,12 +24,16 @@ private:
 	int cusId;
 	int size;
 	Table *table;
-	Booking *booking;
+	void displayMenu();
 	// Tab tab;
 
 public:
-	Customer(Booking *booking, int size);
+	Customer(int size);
 	void eat(Order* o);
 	int getId();
+	void enterRestaurant();
+	void setTable(Table *t);
+	void setSize(int s);
+	int getSize();
 	~Customer();
 };

@@ -115,6 +115,35 @@ void Order::restore(OrderBackup* ob) {
     //next = nullptr;
 }
 
+// void Order::addIngredient(string to,string ingre){
+
+//     Meal* mealPtr = head;
+//     bool found = false;
+//     while (mealPtr->getNext() != nullptr && mealPtr->getNext()->getName() != to) {
+//         mealPtr = mealPtr->getNext();
+//         if(mealPtr->getNext()->getName() != to){found = true;}
+//     }
+//     if(mealPtr->getCategory() != 1){
+//         mealPtr->add(Ingredients(ingre));
+//     }
+    
+// }
+
+// void Order::removeIngredient(string from,string ingre){
+
+//      Meal* mealPtr = head;
+//      bool found = false;
+//     while (mealPtr->getNext() != nullptr && mealPtr->getNext()->getName() != from) {
+//         mealPtr = mealPtr->getNext();
+//         if(mealPtr->getNext()->getName() != from){found = true;}
+//     }
+//     if(mealPtr->getCategory() != 1){
+//         mealPtr->remove(Ingredients(ingre));
+//     }
+
+
+// }
+
 string* Order::getDishList() {
     string* head = new string[206];
     for(int i = 0;i < 206;i++){

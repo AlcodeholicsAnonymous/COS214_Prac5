@@ -5,82 +5,80 @@
 #include "Chef.h"
 #include "Waiter.h"
 #include "Table.h"
+#include "MaitreD.h"
+#include "Floor.h"
+#define WHITE   "\033[37m"      /* White */
+#define RED     "\033[31m"      /* Red */
+#define YELLOW  "\033[33m"      /* Yellow */
 
 using namespace std;
 
 CategoryChef* populateChefs();
-void displayMenu();
+Order* order = new Order();
+Employee* headChef = new HeadChef(populateChefs());
+Database* database = new Database();
+Waiter* waiter = new Waiter(database);
+Floor* theFloor = new Floor();
+MaitreD* maitreD = new MaitreD(theFloor);
+
+Table* table1 = new Table(6, true, 1);
+Table* table2 = new Table(6, true, 2);
+Table* table3 = new Table(6, true, 3);
+Table* table4 = new Table(6, true, 4);
+
+Table** table = new Table*[4] {table1, table2, table3, table4};
 
 int main() {
-    cout << endl;
-    
-    Order* order = new Order();
-    Employee* headChef = new HeadChef(populateChefs());
-    Database* database = new Database();
-    Waiter* waiter = new Waiter(database);
-    cout << "Waiter ID: " << waiter->getID() << endl;
-    Table* table = new Table(5, true, 1);
-    table->setWaiter(waiter);
-    Booking* booking = new Booking(table);
-    Customer* customer = new Customer(booking, 2);
+    for (int i = 0; i < 4; i++)
+    {
+        theFloor->addTable(table[i]);
+        maitreD->assignWaiter(waiter, table[i]);
+    }
+    Customer* customer = new Customer(1);
     waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
-    string* menu = order->getDishList();
-
-    while (true){
+    while (true)
+    {
         cout << "Please pick an option: \n";
-        cout << "0. Exit\n";
-        cout << "1. Display menu\n";
-        cout << "2. Start order\n";
+        cout << RED << "0. Exit\n" << WHITE;
+        cout << "1. Make a booking\n";
+        cout << "2. Try enter restaurant\n";
 
         int option;
         cin >> option;
-
-        if (menu == nullptr)
-        {
-            cout << "Menu is empty\n";
-        }
-        
+        int size;
         switch (option)
         {
         case 0:
-            cout << "Exiting...\n";
+            cout << RED << "Exiting...\n" << WHITE;
             return 0;
         case 1:
-            cout << "Menu: \n";
-            displayMenu();
+            cout << "How many people are in your party?\n";
+            cin >> size;
+            customer->setSize(size);
+            maitreD->addBooking(customer);
+            while (maitreD->checkAvailability() == false)
+            {
+                cout << YELLOW <<"No tables available, please wait\n" << WHITE;
+            }
             break;
         case 2:
-            waiter->createOrder(customer);
+            cout << "How many people are in your party?\n";
+            cin >> size;
+            customer->setSize(size);
+            maitreD->addQueue(customer);
+            while(maitreD->checkAvailability() == false)
+            {
+                cout << YELLOW << "No tables available, please wait\n" << WHITE;
+            }
             break;
         default:
-            cout << "Invalid option\n";
+            cout << RED << "!!Invalid option!!\n" << WHITE;
             break;
         }
-
     }
     
     return 0;
-}
-
-void displayMenu() {
-    cout << "________________________________" << endl;
-    cout << "Mains: \n";
-    for (int i = 0; i < 24; i++)
-    {
-        cout << "|-" << i << ". " << foodBank[i].name << endl;
-    }
-    cout << "Desserts: \n";
-    for (int i = 24; i < 29; i++)
-    {
-        cout << "|-" << i << ". " << foodBank[i].name << endl;
-    }
-    cout << "Drinks: \n";
-    for (int i = 29; i < 40; i++)
-    {
-        cout << "|-" << i << ". " << foodBank[i].name << endl;
-    }
-    cout << "________________________________" << endl;
 }
 
 CategoryChef* populateChefs() {
