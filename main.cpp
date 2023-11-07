@@ -36,6 +36,7 @@ int main() {
     }
     Customer* customer = new Customer(1);
     waiter->setSuccessor(headChef);
+    // waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
     while (true)
     {
@@ -80,7 +81,6 @@ int main() {
     
     return 0;
 }
-
 CategoryChef* populateChefs() {
     CategoryChef *meatChef = new CategoryChef(2);
     CategoryChef *fishChef = new CategoryChef(3);
@@ -101,3 +101,4 @@ CategoryChef* populateChefs() {
     saladsChef->setNextChef(drinksChef);
     return meatChef;
 }
+
