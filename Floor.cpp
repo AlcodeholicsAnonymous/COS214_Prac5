@@ -109,15 +109,39 @@ void Floor::updateAvailability() {
     this->availableTables = counter;
 }
 
-Table* Floor::combineNumTables(int num) {
+Table* Floor::combineTablesNumPeople(int num) {
     Table* curr = this->head;
     int numTables = 0;
+    Table** tables = new Table*[num];
+    int maxSize = 0;
     while (curr != nullptr) {
-        if (curr->getAvailable()) {
+        if (curr->getAvailable() && maxSize < num) {
+            tables[numTables] = curr;
             numTables++;
+            maxSize += curr->getSize()-2;
         }
         curr = curr->getNext();
     }
+    if (maxSize < num || numTables == 0) {
+        return nullptr;
+    }
+    Table* newTable = tables[0];
+    for (int i = 1; i < numTables; i++)
+    {
+        newTable = this->combine(newTable, tables[i]);
+    }
+    return newTable;
+}
+
+Table* Floor::getAvailableForNumPeople(int num) {
+    Table* curr = this->head;
+    while (curr != nullptr) {
+        if (curr->getAvailable() && curr->getSize() >= num) {
+            return curr;
+        }
+        curr = curr->getNext();
+    }
+    return nullptr;
 }
 
 Floor::~Floor() {

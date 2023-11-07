@@ -58,7 +58,13 @@ class Floor {
     *   \param numTables The number of tables to be combined.
     *   \return A pointer to the combined table.
     */
-    Table* combineNumTables(int numTables);
+    Table* combineTablesNumPeople(int numPeople);
+    /*! \fn getAvailableForNumPeople
+    *   \brief Returns a pointer to the first available table for a given number of people.
+    *   \param numPeople The number of people.
+    *  \return A pointer to the first available table for a given number of people.
+    */
+    Table* getAvailableForNumPeople(int numPeople);
     /*! \fn updateAvailability
     *   \brief Updates the number of available tables.
     */
