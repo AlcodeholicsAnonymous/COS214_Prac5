@@ -30,7 +30,6 @@ int OrderBackup::getPrice() {
 }
 
 OrderBackup* OrderBackup::getNext() {
-    cout << "OrderBackup's getNext() called" << endl;
     return next;
 }
 

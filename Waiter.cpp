@@ -2,9 +2,7 @@
 
 Waiter::Waiter(Database* db) {
 	database = db;
-     if (database == nullptr) {
-        cout << "Database is null pt.2\n";
-    }
+    
 }
 
 Waiter::~Waiter() {
@@ -15,8 +13,54 @@ int Waiter::getID() {
 }
 
 void Waiter::takeOrder(Order* o) {
+// bool busy = true;
+// while (busy){
+//         cout << "\n=======================\n";
+//         cout << "Please pick an option: \n";
+//         cout << "0. Continue\n";
+//         cout << "1. Add ingredient to dish\n";
+//         cout << "2. Remove ingredient\n";
+//         cout << "=======================\n";
+
+//         int option;
+//         cin >> option;
+
+//      switch(option){
+//         case 0:{
+//             cout <<  "Order done\n";
+//             busy = false;
+//             return;
+//         }
+//         case 1:{
+//             cout << "Add to what dish:"<< endl;
+//             string dish;
+//             cin >> dish;
+//             cout << "Add what:" << endl;
+//             string ingre;
+//             cin >> ingre;
+//             o->addIngredient(dish,ingre);
+//             break;
+//         }
+//          case 2:{
+//              cout << "Remove from what dish";
+//             string dish;
+//             cin >> dish;
+//             cout << "Remove what";
+//             string ingre;
+//             cin >> ingre;
+//             o->removeIngredient(dish,ingre);
+//             break;
+//          }
+//          default:{
+//             cout << "Invalid option\n";
+//             break;
+//          }
+//      }
+// }
     successor->handleRequest(o); 
 }
+
+
 
 void Waiter::deliverOrder(Order* o) {
     o->getCustomer()->eat(o);
@@ -27,8 +71,8 @@ void Waiter::notify(Order* o) {
     deliverOrder(o);
 }
 
-void Waiter::notify(Table*) {
-
+void Waiter::notifyTableAvailable() {
+    // maitreD->notify();
 }
 
 void Waiter::notify(bool method, Order* o) {
@@ -49,7 +93,7 @@ void Waiter::addToTab(Order* o) {
 
 void Waiter::payTab(Order* o) {
     this->addToTab(o);
-    database->payTab(o->getCustomer()->getId());
+    this->database->payTab(o->getCustomer()->getId());
 }
 
 void Waiter::createOrder(Customer *_c){
@@ -74,7 +118,12 @@ void Waiter::createOrder(Customer *_c){
             flag = false;
             break;
         }
-
+        if (choice < -1 || choice > 39)
+        {
+            cout << "Invalid choice\n";
+            continue;
+        }
+        
         cout << "Please enter the quantity: \n";
         cin >> quantity;
 

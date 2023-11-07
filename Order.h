@@ -25,6 +25,9 @@ public:
 	
 	Customer* getCustomer();			
 	void setCustomer(Customer* c);
+
+	// void addIngredient(string to,string ingre);
+	// void removeIngredient(string from,string ingre);
 	
 	string getState();				
 	void setState(string s);

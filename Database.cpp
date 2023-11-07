@@ -1,10 +1,13 @@
 using namespace std;
 #include "Database.h"
 
+#define WHITE   "\033[37m"      /* White */
+#define RED     "\033[31m"      /* Red */
+#define GREEN   "\033[32m"      /* Green */
 
 
 Database::Database() {
-    db = new Tab(13);
+    db = nullptr;
 }
 
 Database::~Database() {
@@ -65,13 +68,31 @@ bool Database::payTab(int custId) {
 
     //DB not empty -> search for customer's tab
     Tab* tabPtr = db;
+    Tab* prevTab = nullptr;
     while (tabPtr->getNext() != nullptr && tabPtr->getCustId() != custId) {
+        prevTab = tabPtr;
         tabPtr = tabPtr->getNext();
     }
-
     //Tab found
     if (tabPtr->getCustId() == custId) {
+        cout << "Tab Cost: " << tabPtr->getTotal() << endl;
+        cout << "Please enter payment amount: ";
+        int payment;
+        cin >> payment;
+        while (payment < tabPtr->getTotal()) {
+            cout << RED << "Payment amount must be greater than or equal to tab cost" << WHITE << endl;
+            cout << "Please enter payment amount: ";
+            cin >> payment;
+        }
+        cout << GREEN << "Thank you for your payment" << WHITE << endl;
+        if (prevTab != nullptr) {
+            prevTab->setNext(tabPtr->getNext());
+        } else {
+            db = tabPtr->getNext();
+        }
+        
         delete tabPtr;
+
         //maybe output total or something
         return true;
     }

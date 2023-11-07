@@ -88,32 +88,32 @@ Meal* Dish::getMeal(){
 
 
 
-void Dish::addIngredient(Meal* m){
+// void Dish::addIngredient(Meal* m){
     
-    Meal* newIngre = new Meal[this->amountIngredients+1];
-    for(int i = 0; i < this->amountIngredients; i++){
-        newIngre[i] = this->thisMeal[i];
-    }
-    newIngre[this->amountIngredients] = *m;
-    this->amountIngredients++;
-    this->thisMeal = newIngre;
+//     Meal* newIngre = new Meal[this->amountIngredients+1];
+//     for(int i = 0; i < this->amountIngredients; i++){
+//         newIngre[i] = this->thisMeal[i];
+//     }
+//     newIngre[this->amountIngredients] = *m;
+//     this->amountIngredients++;
+//     this->thisMeal = newIngre;
 
-}
-void Dish::removeIngredient(Meal* m){
+// }
+// void Dish::removeIngredient(Meal* m){
 
-    Meal* newIngre = new Meal[this->amountIngredients-1];
-    int j = 0;
-    for(int i = 0; i < this->amountIngredients; i++){
+//     Meal* newIngre = new Meal[this->amountIngredients-1];
+//     int j = 0;
+//     for(int i = 0; i < this->amountIngredients; i++){
 
-        if(this->thisMeal[i].getName() != m->getName()){  
-            newIngre[j] = this->thisMeal[i];
-            j++;
-        }
-    }
-    this->amountIngredients--;
-    this->thisMeal = newIngre;
+//         if(this->thisMeal[i].getName() != m->getName()){  
+//             newIngre[j] = this->thisMeal[i];
+//             j++;
+//         }
+//     }
+//     this->amountIngredients--;
+//     this->thisMeal = newIngre;
 
-}
+// }
 
 Meal* Dish::getChild(int child){
     return &this->thisMeal[child];
