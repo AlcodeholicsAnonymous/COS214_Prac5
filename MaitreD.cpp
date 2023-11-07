@@ -59,20 +59,44 @@ void MaitreD::notify() {
     Table* openTable = floor->getFirstAvailableTable();
     if (!bookings.empty()) {
         Customer* c = bookings.front();
-        if (openTable != nullptr) {
-            if (c->getSize() <= openTable->getSize()) {
-                c->setTable(openTable);
+        if (openTable != nullptr && c->getSize() <= openTable->getSize()) {
+            c->setTable(openTable);
+            bookings.pop();
+            c->enterRestaurant();
+        } else if (floor->getAvailableForNumPeople() != nullptr) {
+            Table* t = floor->getAvailableForNumPeople();
+            c->setTable(t);
+            bookings.pop();
+            c->enterRestaurant();
+        } else {
+            Table* t = floor->combineTablesNumPeople(c->getSize());
+            if (t != nullptr) {
+                c->setTable(t);
                 bookings.pop();
                 c->enterRestaurant();
+            } else {
+                std::cout << "No tables available" << std::endl;
             }
         }
     } else if (!queue.empty()) {
         Customer* c = queue.front();
-        if (openTable != nullptr) {
-            if (c->getSize() <= openTable->getSize()) {
-                c->setTable(openTable);
-                queue.pop();
+        if (openTable != nullptr && c->getSize() <= openTable->getSize()) {
+            c->setTable(openTable);
+            bookings.pop();
+            c->enterRestaurant();
+        } else if (floor->getAvailableForNumPeople() != nullptr) {
+            Table* t = floor->getAvailableForNumPeople();
+            c->setTable(t);
+            bookings.pop();
+            c->enterRestaurant();
+        } else {
+            Table* t = floor->combineTablesNumPeople(c->getSize());
+            if (t != nullptr) {
+                c->setTable(t);
+                bookings.pop();
                 c->enterRestaurant();
+            } else {
+                std::cout << "No tables available" << std::endl;
             }
         }
     } else {

@@ -20,7 +20,6 @@ public:
     void handleRequest(Order*);
     void notify(Order *o);
     static HeadChef* getHeadChef();
-protected:
     HeadChef(CategoryChef*);
 };
 

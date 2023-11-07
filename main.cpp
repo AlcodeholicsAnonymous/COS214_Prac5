@@ -21,10 +21,10 @@ Waiter* waiter = new Waiter(database);
 Floor* theFloor = new Floor();
 MaitreD* maitreD = new MaitreD(theFloor);
 
-Table* table1 = new Table(6, true, 1);
-Table* table2 = new Table(6, true, 2);
-Table* table3 = new Table(6, true, 3);
-Table* table4 = new Table(6, true, 4);
+Table* table1 = new Table(3, true, 1);
+Table* table2 = new Table(3, true, 2);
+Table* table3 = new Table(3, true, 3);
+Table* table4 = new Table(3, true, 4);
 
 Table** table = new Table*[4] {table1, table2, table3, table4};
 
@@ -34,7 +34,7 @@ int main() {
         theFloor->addTable(table[i]);
         maitreD->assignWaiter(waiter, table[i]);
     }
-    Customer* customer = new Customer(1);
+    Customer* customer = new Customer(6);
     waiter->setSuccessor(headChef);
     // waiter->setSuccessor(headChef);
     headChef->setSuccessor(waiter);
